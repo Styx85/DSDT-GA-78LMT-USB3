@@ -2441,7 +2441,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x0F)
             }
 
-            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
             {
                 Name (BUF0, ResourceTemplate ()
                 {
@@ -3603,7 +3603,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
 
                     Name (PRIS, 0x00)
-                    Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+                    Method (_PS0, 0, Serialized)  // _PS0: Power State 0
                     {
                         If (STEN)
                         {
@@ -3668,7 +3668,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (P_D0)
                     {
                         Name (_ADR, 0x00)  // _ADR: Address
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (STEN)
                             {
@@ -3697,7 +3697,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         }
 
                         Name (S12P, 0x00)
-                        Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+                        Method (_PS0, 0, Serialized)  // _PS0: Power State 0
                         {
                             If (STEN)
                             {
@@ -3734,7 +3734,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (P_D1)
                     {
                         Name (_ADR, 0x01)  // _ADR: Address
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (STEN)
                             {
@@ -3763,7 +3763,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         }
 
                         Name (S12P, 0x00)
-                        Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+                        Method (_PS0, 0, Serialized)  // _PS0: Power State 0
                         {
                             If (STEN)
                             {
@@ -3811,7 +3811,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
 
                     Name (SECS, 0x00)
-                    Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+                    Method (_PS0, 0, Serialized)  // _PS0: Power State 0
                     {
                         If (STEN)
                         {
@@ -3875,7 +3875,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (S_D0)
                     {
                         Name (_ADR, 0x00)  // _ADR: Address
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (STEN)
                             {
@@ -3904,7 +3904,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         }
 
                         Name (S12P, 0x00)
-                        Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+                        Method (_PS0, 0, Serialized)  // _PS0: Power State 0
                         {
                             If (STEN)
                             {
