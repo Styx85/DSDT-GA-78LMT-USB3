@@ -1,9 +1,0 @@
-[default]
-name=Vorgabe
-device=local
-runtime=host
-config-opts=
-run-opts=
-prefix=/home/caberliner/.cache/gnome-builder/install/DSDT-GA-78LMT-USB3/host
-app-id=
-default=true
