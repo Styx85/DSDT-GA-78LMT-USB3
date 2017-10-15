@@ -6746,14 +6746,14 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         DMA (Compatibility, NotBusMaster, Transfer8, _Y0A)
                             {}
                     })
-                    CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y07._MIN, IOLO)  // _MIN: Minimum Base Address
+                    CreateWordField (BUF6, \_SB.PCI0.ECP1._CRS._Y07._MIN, IOLO)  // _MIN: Minimum Base Address
                     CreateByteField (BUF6, 0x03, IOHI)
-                    CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y07._MAX, IORL)  // _MAX: Maximum Base Address
+                    CreateWordField (BUF6, \_SB.PCI0.ECP1._CRS._Y07._MAX, IORL)  // _MAX: Maximum Base Address
                     CreateByteField (BUF6, 0x05, IORH)
                     CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y07._LEN, IOLE)  // _LEN: Length
-                    CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y08._MIN, IOEL)  // _MIN: Minimum Base Address
+                    CreateWordField (BUF6, \_SB.PCI0.ECP1._CRS._Y08._MIN, IOEL)  // _MIN: Minimum Base Address
                     CreateByteField (BUF6, 0x0B, IOEH)
-                    CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y08._MAX, IOML)  // _MAX: Maximum Base Address
+                    CreateWordField (BUF6, \_SB.PCI0.ECP1._CRS._Y08._MAX, IOML)  // _MAX: Maximum Base Address
                     CreateByteField (BUF6, 0x0D, IOMH)
                     CreateWordField (BUF6, \_SB.PCI0.ECP1._CRS._Y09._INT, IRQW)  // _INT: Interrupts
                     CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y0A._DMA, DMAC)  // _DMA: Direct Memory Access
