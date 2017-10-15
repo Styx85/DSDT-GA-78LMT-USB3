@@ -5011,7 +5011,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Return (BUF) /* \_SB_.PCI0.IDE_.GTM_.BUF_ */
                 }
 
-                Method (STM, 3, Serialized)
+                Method (STM, 3, NotSerialized)
                 {
                     CreateDWordField (Arg0, 0x00, PIO0)
                     CreateDWordField (Arg0, 0x04, DMA0)
