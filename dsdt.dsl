@@ -1963,7 +1963,6 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             Method (WMAA, 3, NotSerialized)
             {
                 If ((Arg0 == 0x00))
-                Return (Zero)
                 {
                     If ((((Arg1 != 0x01) || (Arg1 != 0x02)) ||
                         (Arg1 != 0x06)))
