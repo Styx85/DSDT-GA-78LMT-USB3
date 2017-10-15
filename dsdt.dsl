@@ -2050,7 +2050,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
     Name (LINX, 0x00)
     Name (AMAC, 0x00)
     Name (OSFL, 0x01)
-    Method (STRC, 2, NotSerialized)
+    Method (STRC, 2, Serialized)
     {
         If ((SizeOf (Arg0) != SizeOf (Arg1)))
         {
