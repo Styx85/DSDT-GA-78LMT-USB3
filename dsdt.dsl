@@ -4124,7 +4124,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                                 0xE0000000,         // Range Minimum
                                 0xE0000000,         // Range Maximum
                                 0x00000000,         // Translation Offset
-                                0x00000000,         // Length
+                                0x00000001,         // Length
                                 ,, _Y01, AddressRangeMemory, TypeStatic)
                             DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                                 0x00000000,         // Granularity
