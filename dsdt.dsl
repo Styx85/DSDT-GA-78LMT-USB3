@@ -5011,7 +5011,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Return (BUF) /* \_SB_.PCI0.IDE_.GTM_.BUF_ */
                 }
 
-                Method (STM, 3, NotSerialized)
+                Method (STM, 3, Serialized)
                 {
                     CreateDWordField (Arg0, 0x00, PIO0)
                     CreateDWordField (Arg0, 0x04, DMA0)
@@ -5137,7 +5137,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         Return (GTM (BUF))
                     }
 
-                    Method (_STM, 3, NotSerialized)  // _STM: Set Timing Mode
+                    Method (_STM, 3, Serialized)  // _STM: Set Timing Mode
                     {
                         Name (BUF, Buffer (0x07)
                         {
@@ -5159,7 +5159,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (P_D0)
                     {
                         Name (_ADR, 0x00)  // _ADR: Address
-                        Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
+                        Method (_GTF, 0, Serialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
                             {
@@ -5180,7 +5180,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (P_D1)
                     {
                         Name (_ADR, 0x01)  // _ADR: Address
-                        Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
+                        Method (_GTF, 0, Serialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
                             {
@@ -5202,7 +5202,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Device (SECD)
                 {
                     Name (_ADR, 0x01)  // _ADR: Address
-                    Method (_GTM, 0, NotSerialized)  // _GTM: Get Timing Mode
+                    Method (_GTM, 0, Serialized)  // _GTM: Get Timing Mode
                     {
                         Name (BUF, Buffer (0x07)
                         {
@@ -5221,7 +5221,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         Return (GTM (BUF))
                     }
 
-                    Method (_STM, 3, NotSerialized)  // _STM: Set Timing Mode
+                    Method (_STM, 3, Serialized)  // _STM: Set Timing Mode
                     {
                         Name (BUF, Buffer (0x07)
                         {
@@ -5243,7 +5243,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (S_D0)
                     {
                         Name (_ADR, 0x00)  // _ADR: Address
-                        Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
+                        Method (_GTF, 0, Serialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
                             {
@@ -5264,7 +5264,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (S_D1)
                     {
                         Name (_ADR, 0x01)  // _ADR: Address
-                        Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
+                        Method (_GTF, 0, Serialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
                             {
