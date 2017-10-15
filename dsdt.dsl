@@ -3941,7 +3941,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (S_D1)
                     {
                         Name (_ADR, 0x01)  // _ADR: Address
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (STEN)
                             {
@@ -3970,7 +3970,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         }
 
                         Name (S12P, 0x00)
-                        Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+                        Method (_PS0, 0, Serialized)  // _PS0: Power State 0
                         {
                             If (STEN)
                             {
@@ -4013,7 +4013,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  // _HID: Hardware ID
                     Name (_UID, 0x03)  // _UID: Unique ID
-                    Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+                    Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         Name (BUF0, ResourceTemplate ()
                         {
@@ -4960,7 +4960,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         )))
                 }
 
-                Method (GTM, 1, NotSerialized)
+                Method (GTM, 1, Serialized)
                 {
                     CreateByteField (Arg0, 0x00, PIT1)
                     CreateByteField (Arg0, 0x01, PIT0)
@@ -5011,7 +5011,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Return (BUF) /* \_SB_.PCI0.IDE_.GTM_.BUF_ */
                 }
 
-                Method (STM, 3, NotSerialized)
+                Method (STM, 3, Serialized)
                 {
                     CreateDWordField (Arg0, 0x00, PIO0)
                     CreateDWordField (Arg0, 0x04, DMA0)
@@ -5065,7 +5065,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Return (BUF) /* \_SB_.PCI0.IDE_.STM_.BUF_ */
                 }
 
-                Method (GTF, 2, NotSerialized)
+                Method (GTF, 2, Serialized)
                 {
                     CreateByteField (Arg1, 0x00, MDT1)
                     CreateByteField (Arg1, 0x01, MDT0)
@@ -5118,7 +5118,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Device (PRID)
                 {
                     Name (_ADR, 0x00)  // _ADR: Address
-                    Method (_GTM, 0, NotSerialized)  // _GTM: Get Timing Mode
+                    Method (_GTM, 0, Serialized)  // _GTM: Get Timing Mode
                     {
                         Name (BUF, Buffer (0x07)
                         {
