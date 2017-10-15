@@ -1,0 +1,2 @@
+# DSDT-GA-78LMT-USB3
+Try to FixUp GA-78LMT-USB3 DSDT Table
