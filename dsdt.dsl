@@ -4131,7 +4131,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                                 0xFEE00400,         // Range Minimum
                                 0xFEE00FFF,         // Range Maximum
                                 0x00000000,         // Translation Offset
-                                0x00000BFF,         // Length
+                                0x00000C00,         // Length
                                 ,, , AddressRangeMemory, TypeStatic)
                         })
                         CreateDWordField (BUF0, \_SB.PCI0.LPC0.PMIO._CRS._Y01._MIN, BARX)  // _MIN: Minimum Base Address
