@@ -912,7 +912,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (TEMP) /* \AOD_.GCMS.TEMP */
             }
 
-            Method (SCMS, 2, NotSerialized)
+            Method (SCMS, 2, Serialized)
             {
                 Name (ADDR, 0x00)
                 Name (MASK, 0x00)
@@ -1044,7 +1044,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (Local0)
             }
 
-            Method (CCLK, 1, NotSerialized)
+            Method (CCLK, 1, Serialized)
             {
                 Name (VCOV, 0x00)
                 Name (VCOD, 0x00)
@@ -1115,7 +1115,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x04)
             }
 
-            Method (RMPC, 3, NotSerialized)
+            Method (RMPC, 3, Serialized)
             {
                 Name (STAT, 0x00)
                 Local0 = Arg0
@@ -1348,7 +1348,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x00)
             }
 
-            Method (AM05, 1, NotSerialized)
+            Method (AM05, 1, Serialized)
             {
                 Name (INFO, Buffer (0x14)
                 {
