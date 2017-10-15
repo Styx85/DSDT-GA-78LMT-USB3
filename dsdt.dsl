@@ -6596,9 +6596,9 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         IRQNoFlags (_Y06)
                             {}
                     })
-                    CreateByteField (BUF5, \_SB.PCI0.LPT1._CRS._Y05._MIN, IOLO)  // _MIN: Minimum Base Address
+                    CreateWordFieldField (BUF5, \_SB.PCI0.LPT1._CRS._Y05._MIN, IOLO)  // _MIN: Minimum Base Address
                     CreateByteField (BUF5, 0x03, IOHI)
-                    CreateByteField (BUF5, \_SB.PCI0.LPT1._CRS._Y05._MAX, IORL)  // _MAX: Maximum Base Address
+                    CreateWordField (BUF5, \_SB.PCI0.LPT1._CRS._Y05._MAX, IORL)  // _MAX: Maximum Base Address
                     CreateByteField (BUF5, 0x05, IORH)
                     CreateByteField (BUF5, \_SB.PCI0.LPT1._CRS._Y05._LEN, IOLE)  // _LEN: Length
                     CreateWordField (BUF5, \_SB.PCI0.LPT1._CRS._Y06._INT, IRQW)  // _INT: Interrupts
