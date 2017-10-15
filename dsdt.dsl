@@ -819,7 +819,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x00)
             }
 
-            Method (CBTP, 1, NotSerialized)
+            Method (CBTP, 1, Serialized)
             {
                 Name (LOID, 0x00)
                 CreateDWordField (Arg0, 0x00, BUF0)
@@ -875,7 +875,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 P73,    8
             }
 
-            Method (BSF, 1, NotSerialized)
+            Method (BSF, 1, Serialized)
             {
                 Name (BIT0, 0x01)
                 Local1 = 0x08
