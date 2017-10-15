@@ -2,7 +2,7 @@
  * Intel ACPI Component Architecture
  * AML/ASL+ Disassembler version 20170303 (64-bit version)
  * Copyright (c) 2000 - 2017 Intel Corporation
- * 
+ *
  * Disassembling to symbolic ASL+ operators
  *
  * Disassembly of dsdt.dat, Sun Oct 15 11:33:21 2017
@@ -39,30 +39,30 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
     Name (\_S0, Package (0x04)  // _S0_: S0 System State
     {
-        0x00, 
-        0x00, 
-        0x00, 
+        0x00,
+        0x00,
+        0x00,
         0x00
     })
     Name (\_S3, Package (0x04)  // _S3_: S3 System State
     {
-        0x03, 
-        0x01, 
-        0x01, 
+        0x03,
+        0x01,
+        0x01,
         0x01
     })
     Name (\_S4, Package (0x04)  // _S4_: S4 System State
     {
-        0x04, 
-        0x04, 
-        0x04, 
+        0x04,
+        0x04,
+        0x04,
         0x04
     })
     Name (\_S5, Package (0x04)  // _S5_: S5 System State
     {
-        0x05, 
-        0x05, 
-        0x05, 
+        0x05,
+        0x05,
+        0x05,
         0x05
     })
     OperationRegion (\DEBG, SystemIO, 0x80, 0x01)
@@ -75,215 +75,215 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
     OperationRegion (ACMS, SystemIO, 0x72, 0x02)
     Field (ACMS, ByteAcc, NoLock, Preserve)
     {
-        ICMS,   8, 
+        ICMS,   8,
         DCMS,   8
     }
 
     IndexField (ICMS, DCMS, ByteAcc, NoLock, Preserve)
     {
-        Offset (0x01), 
-        Offset (0x04), 
-        Offset (0x08), 
+        Offset (0x01),
+        Offset (0x04),
+        Offset (0x08),
         BS_A,   32
     }
 
     OperationRegion (CFGS, SystemMemory, BS_A, 0x80)
     Field (CFGS, AnyAcc, NoLock, Preserve)
     {
-        Offset (0x04), 
-        PCIE,   32, 
-        Offset (0x3D), 
-        TPMF,   1, 
-        STHP,   1, 
-        SHPG,   1, 
-        OSCF,   1, 
-        Offset (0x41), 
+        Offset (0x04),
+        PCIE,   32,
+        Offset (0x3D),
+        TPMF,   1,
+        STHP,   1,
+        SHPG,   1,
+        OSCF,   1,
+        Offset (0x41),
         XLM0,   32
     }
 
     OperationRegion (CMPT, SystemIO, 0x0C50, 0x03)
     Field (CMPT, ByteAcc, NoLock, Preserve)
     {
-        CMID,   8, 
-            ,   6, 
-        GPCT,   2, 
-        GP0I,   1, 
-        GP1I,   1, 
-        GP2I,   1, 
-        GP3I,   1, 
-        GP4I,   1, 
-        GP5I,   1, 
-        GP6I,   1, 
+        CMID,   8,
+            ,   6,
+        GPCT,   2,
+        GP0I,   1,
+        GP1I,   1,
+        GP2I,   1,
+        GP3I,   1,
+        GP4I,   1,
+        GP5I,   1,
+        GP6I,   1,
         GP7I,   1
     }
 
     OperationRegion (PCFG, SystemMemory, PCIE, 0x02000000)
     Field (PCFG, AnyAcc, NoLock, Preserve)
     {
-        Offset (0xA0004), 
-        SMIE,   1, 
-        SMME,   1, 
-        Offset (0xA0008), 
-        RVID,   8, 
-        Offset (0xA0014), 
-        SMB1,   32, 
-        Offset (0xA0050), 
-        GO49,   1, 
-        GO50,   1, 
-        GO51,   1, 
-        GO52,   1, 
-        Offset (0xA0051), 
-        GP49,   1, 
-        GP50,   1, 
-        GP51,   1, 
-        GP52,   1, 
-        Offset (0xA0052), 
-        GO53,   1, 
-        GO54,   1, 
-        GO55,   1, 
-        GO56,   1, 
-        Offset (0xA0053), 
-        GP53,   1, 
-        GP54,   1, 
-        GP55,   1, 
-        GP56,   1, 
-        Offset (0xA0054), 
-        GO57,   1, 
-        GO58,   1, 
-        GO59,   1, 
-        GO60,   1, 
-        Offset (0xA0055), 
-        GP57,   1, 
-        GP58,   1, 
-        GP59,   1, 
-        GP60,   1, 
-        Offset (0xA0056), 
-        GO61,   1, 
-        GO62,   1, 
-        GO63,   1, 
-        GO64,   1, 
-        Offset (0xA0057), 
-        GP61,   1, 
-        GP62,   1, 
-        GP63,   1, 
-        GP64,   1, 
-        Offset (0xA00AD), 
+        Offset (0xA0004),
+        SMIE,   1,
+        SMME,   1,
+        Offset (0xA0008),
+        RVID,   8,
+        Offset (0xA0014),
+        SMB1,   32,
+        Offset (0xA0050),
+        GO49,   1,
+        GO50,   1,
+        GO51,   1,
+        GO52,   1,
+        Offset (0xA0051),
+        GP49,   1,
+        GP50,   1,
+        GP51,   1,
+        GP52,   1,
+        Offset (0xA0052),
+        GO53,   1,
+        GO54,   1,
+        GO55,   1,
+        GO56,   1,
+        Offset (0xA0053),
+        GP53,   1,
+        GP54,   1,
+        GP55,   1,
+        GP56,   1,
+        Offset (0xA0054),
+        GO57,   1,
+        GO58,   1,
+        GO59,   1,
+        GO60,   1,
+        Offset (0xA0055),
+        GP57,   1,
+        GP58,   1,
+        GP59,   1,
+        GP60,   1,
+        Offset (0xA0056),
+        GO61,   1,
+        GO62,   1,
+        GO63,   1,
+        GO64,   1,
+        Offset (0xA0057),
+        GP61,   1,
+        GP62,   1,
+        GP63,   1,
+        GP64,   1,
+        Offset (0xA00AD),
         STEN,   1
     }
 
     OperationRegion (PMIO, SystemIO, 0x0CD6, 0x02)
     Field (PMIO, ByteAcc, NoLock, Preserve)
     {
-        INPM,   8, 
+        INPM,   8,
         DAPM,   8
     }
 
     IndexField (INPM, DAPM, ByteAcc, NoLock, Preserve)
     {
-            ,   1, 
-        TM1E,   1, 
-        TM2E,   1, 
-        Offset (0x01), 
-            ,   1, 
-        TM1S,   1, 
-        TM2S,   1, 
-        Offset (0x04), 
-            ,   7, 
-        SLPS,   1, 
-        Offset (0x07), 
-            ,   7, 
-        CLPS,   1, 
-        Offset (0x10), 
-            ,   6, 
-        PWDE,   1, 
-        Offset (0x1C), 
-            ,   3, 
-        MKME,   1, 
-        PI3E,   1, 
-        PI2E,   1, 
-        PI1E,   1, 
-        PI0E,   1, 
-            ,   3, 
-        MKMS,   1, 
-        PI3S,   1, 
-        PI2S,   1, 
-        PI1S,   1, 
-        PI0S,   1, 
-        Offset (0x20), 
-        P1EB,   16, 
-        Offset (0x36), 
-            ,   6, 
-        GV6P,   1, 
-        GV7P,   1, 
-            ,   3, 
-        GM0P,   1, 
-        GM1P,   1, 
-        GM2P,   1, 
-        GM3P,   1, 
-        GM8P,   1, 
-            ,   1, 
-        GM4P,   1, 
-        GM5P,   1, 
-            ,   1, 
-        GM6P,   1, 
-        GM7P,   1, 
-        Offset (0x3B), 
-        GPX0,   1, 
-        GPX4,   1, 
-        GPX5,   1, 
-        GPX1,   1, 
-        GPX6,   1, 
-        GPX7,   1, 
-        GPX2,   1, 
-        GPX3,   1, 
-        Offset (0x55), 
-        SPRE,   1, 
-            ,   1, 
-            ,   1, 
-        EPNM,   1, 
-        DPPF,   1, 
-        FNGS,   1, 
-        Offset (0x61), 
-            ,   7, 
-        R617,   1, 
-        Offset (0x65), 
-            ,   4, 
-        RSTU,   1, 
-        Offset (0x68), 
-            ,   3, 
-        TPDE,   1, 
-            ,   1, 
-        Offset (0x7C), 
-            ,   2, 
-        BLNK,   2, 
-        Offset (0x92), 
-            ,   7, 
-        GV7S,   1, 
-        Offset (0x96), 
-        GP8I,   1, 
-        GP9I,   1, 
-        Offset (0x9A), 
-            ,   7, 
-        HECO,   1, 
-        Offset (0xA8), 
-        PI4E,   1, 
-        PI5E,   1, 
-        PI6E,   1, 
-        PI7E,   1, 
-        Offset (0xA9), 
-        PI4S,   1, 
-        PI5S,   1, 
-        PI6S,   1, 
+            ,   1,
+        TM1E,   1,
+        TM2E,   1,
+        Offset (0x01),
+            ,   1,
+        TM1S,   1,
+        TM2S,   1,
+        Offset (0x04),
+            ,   7,
+        SLPS,   1,
+        Offset (0x07),
+            ,   7,
+        CLPS,   1,
+        Offset (0x10),
+            ,   6,
+        PWDE,   1,
+        Offset (0x1C),
+            ,   3,
+        MKME,   1,
+        PI3E,   1,
+        PI2E,   1,
+        PI1E,   1,
+        PI0E,   1,
+            ,   3,
+        MKMS,   1,
+        PI3S,   1,
+        PI2S,   1,
+        PI1S,   1,
+        PI0S,   1,
+        Offset (0x20),
+        P1EB,   16,
+        Offset (0x36),
+            ,   6,
+        GV6P,   1,
+        GV7P,   1,
+            ,   3,
+        GM0P,   1,
+        GM1P,   1,
+        GM2P,   1,
+        GM3P,   1,
+        GM8P,   1,
+            ,   1,
+        GM4P,   1,
+        GM5P,   1,
+            ,   1,
+        GM6P,   1,
+        GM7P,   1,
+        Offset (0x3B),
+        GPX0,   1,
+        GPX4,   1,
+        GPX5,   1,
+        GPX1,   1,
+        GPX6,   1,
+        GPX7,   1,
+        GPX2,   1,
+        GPX3,   1,
+        Offset (0x55),
+        SPRE,   1,
+            ,   1,
+            ,   1,
+        EPNM,   1,
+        DPPF,   1,
+        FNGS,   1,
+        Offset (0x61),
+            ,   7,
+        R617,   1,
+        Offset (0x65),
+            ,   4,
+        RSTU,   1,
+        Offset (0x68),
+            ,   3,
+        TPDE,   1,
+            ,   1,
+        Offset (0x7C),
+            ,   2,
+        BLNK,   2,
+        Offset (0x92),
+            ,   7,
+        GV7S,   1,
+        Offset (0x96),
+        GP8I,   1,
+        GP9I,   1,
+        Offset (0x9A),
+            ,   7,
+        HECO,   1,
+        Offset (0xA8),
+        PI4E,   1,
+        PI5E,   1,
+        PI6E,   1,
+        PI7E,   1,
+        Offset (0xA9),
+        PI4S,   1,
+        PI5S,   1,
+        PI6S,   1,
         PI7S,   1
     }
 
     OperationRegion (P1E0, SystemIO, P1EB, 0x04)
     Field (P1E0, ByteAcc, NoLock, Preserve)
     {
-            ,   14, 
-        PEWS,   1, 
-        WSTA,   1, 
-            ,   14, 
+            ,   14,
+        PEWS,   1,
+        WSTA,   1,
+            ,   14,
         PEWD,   1
     }
 
@@ -328,76 +328,76 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
         OperationRegion (NCLK, SystemMemory, PCIE, 0x02000000)
         Field (NCLK, AnyAcc, NoLock, Preserve)
         {
-            Offset (0x4C), 
-            CLKE,   1, 
-            Offset (0x1048), 
-            P3HH,   12, 
-                ,   19, 
-            P3EE,   1, 
-            P4EN,   1, 
-            P4NM,   12, 
-            P4HI,   12, 
-            P4IO,   1, 
-            Offset (0x1050), 
-            P5EN,   1, 
-            P5NM,   12, 
-            P5HI,   12, 
-            P5IO,   1, 
-            Offset (0x1054), 
-            P6EN,   1, 
-            P6NM,   12, 
-            P6HI,   12, 
-            P6IO,   1, 
-            Offset (0x10B0), 
-            P1NM,   12, 
-            P1HI,   12, 
-            P1EN,   1, 
-            P1IO,   1, 
-            Offset (0x10B4), 
-            P2NM,   12, 
-            P2HI,   12, 
-            P2EN,   1, 
-            P2IO,   1, 
-            Offset (0x10CC), 
-            P3EN,   1, 
-            P3NM,   12, 
-            P3HI,   12, 
+            Offset (0x4C),
+            CLKE,   1,
+            Offset (0x1048),
+            P3HH,   12,
+                ,   19,
+            P3EE,   1,
+            P4EN,   1,
+            P4NM,   12,
+            P4HI,   12,
+            P4IO,   1,
+            Offset (0x1050),
+            P5EN,   1,
+            P5NM,   12,
+            P5HI,   12,
+            P5IO,   1,
+            Offset (0x1054),
+            P6EN,   1,
+            P6NM,   12,
+            P6HI,   12,
+            P6IO,   1,
+            Offset (0x10B0),
+            P1NM,   12,
+            P1HI,   12,
+            P1EN,   1,
+            P1IO,   1,
+            Offset (0x10B4),
+            P2NM,   12,
+            P2HI,   12,
+            P2EN,   1,
+            P2IO,   1,
+            Offset (0x10CC),
+            P3EN,   1,
+            P3NM,   12,
+            P3HI,   12,
             P3IO,   1
         }
 
         OperationRegion (SOR1, SystemIO, SBA1, 0x10)
         Field (SOR1, ByteAcc, NoLock, Preserve)
         {
-            SMSA,   8, 
-            SSSA,   8, 
-            SBCA,   8, 
-            SHCA,   8, 
-            SBAA,   8, 
-            SD0A,   8, 
-            SD1A,   8, 
-            SBDA,   8, 
-            SSCA,   8, 
-            SMCA,   8, 
-            SSEA,   16, 
-            SSDA,   16, 
+            SMSA,   8,
+            SSSA,   8,
+            SBCA,   8,
+            SHCA,   8,
+            SBAA,   8,
+            SD0A,   8,
+            SD1A,   8,
+            SBDA,   8,
+            SSCA,   8,
+            SMCA,   8,
+            SSEA,   16,
+            SSDA,   16,
             SMTA,   8
         }
 
         OperationRegion (SOR2, SystemIO, SBA2, 0x10)
         Field (SOR2, ByteAcc, NoLock, Preserve)
         {
-            SMSB,   8, 
-            SSSB,   8, 
-            SBCB,   8, 
-            SHCB,   8, 
-            SBAB,   8, 
-            SD0B,   8, 
-            SD1B,   8, 
-            SBDB,   8, 
-            SSCB,   8, 
-            SMCB,   8, 
-            SSEB,   16, 
-            SSDB,   16, 
+            SMSB,   8,
+            SSSB,   8,
+            SBCB,   8,
+            SHCB,   8,
+            SBAB,   8,
+            SD0B,   8,
+            SD1B,   8,
+            SBDB,   8,
+            SSCB,   8,
+            SMCB,   8,
+            SSEB,   16,
+            SSDB,   16,
             SMTB,   8
         }
 
@@ -500,16 +500,16 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
         OperationRegion (IOOR, SystemIO, SIOP, 0x02)
         Field (IOOR, ByteAcc, NoLock, Preserve)
         {
-            IOID,   8, 
+            IOID,   8,
             IODT,   8
         }
 
         OperationRegion (GBOR, SystemIO, GIOB, 0x02)
         Field (GBOR, ByteAcc, NoLock, Preserve)
         {
-            Offset (0x01), 
-                ,   5, 
-            GP25,   1, 
+            Offset (0x01),
+                ,   5,
+            GP25,   1,
             GP26,   1
         }
 
@@ -534,17 +534,17 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
         {
             Package (0x04)
             {
-                0x87, 
-                0x01, 
-                0x55, 
+                0x87,
+                0x01,
+                0x55,
                 0x55
-            }, 
+            },
 
             Package (0x04)
             {
-                0x87, 
-                0x01, 
-                0x55, 
+                0x87,
+                0x01,
+                0x55,
                 0xAA
             }
         })
@@ -586,66 +586,66 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             Name (DBG, 0x01)
             Name (OBID, Package (0x1C)
             {
-                0x04, 
-                0x01010000, 
-                0x01020000, 
-                0x02010000, 
-                0x02040000, 
-                0x00, 
-                0x00, 
-                0x00, 
-                0x00, 
-                0x00, 
-                0x01, 
-                0x01, 
-                0x00, 
-                0x00, 
-                0xFF, 
-                0xFF, 
-                0xFF, 
-                0xFF, 
-                0xFF, 
-                "CPU Clock", 
-                "PCIE Clock", 
-                "Memory VDDQ", 
-                "NB Core Voltage", 
-                "", 
-                "", 
-                "", 
-                "", 
+                0x04,
+                0x01010000,
+                0x01020000,
+                0x02010000,
+                0x02040000,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x01,
+                0x01,
+                0x00,
+                0x00,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                "CPU Clock",
+                "PCIE Clock",
+                "Memory VDDQ",
+                "NB Core Voltage",
+                "",
+                "",
+                "",
+                "",
                 ""
             })
             Name (OBIT, Package (0x1E)
             {
-                0x01010000, 
-                0x00030D40, 
-                0x0007A120, 
-                0x00, 
-                0x03E8, 
-                0x00, 
-                0x01020000, 
-                0x000186A0, 
-                0x000249F0, 
-                0x00, 
-                0x03E8, 
-                0x00, 
-                0x02010000, 
-                0x0002BF20, 
-                0x00033450, 
-                0x00, 
-                0x2710, 
-                0x00, 
-                0x02040000, 
-                0x0001ADB0, 
-                0x000222E0, 
-                0x00, 
-                0x2710, 
-                0x00, 
-                0x00, 
-                0x00, 
-                0x00, 
-                0x00, 
-                0x00, 
+                0x01010000,
+                0x00030D40,
+                0x0007A120,
+                0x00,
+                0x03E8,
+                0x00,
+                0x01020000,
+                0x000186A0,
+                0x000249F0,
+                0x00,
+                0x03E8,
+                0x00,
+                0x02010000,
+                0x0002BF20,
+                0x00033450,
+                0x00,
+                0x2710,
+                0x00,
+                0x02040000,
+                0x0001ADB0,
+                0x000222E0,
+                0x00,
+                0x2710,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
                 0x00
             })
             Name (OBDT, Package (0x01)
@@ -654,18 +654,18 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             })
             Name (DOVT, Package (0x05)
             {
-                0x0002BF20, 
-                0x0002E630, 
-                0x00030D40, 
-                0x00033450, 
+                0x0002BF20,
+                0x0002E630,
+                0x00030D40,
+                0x00033450,
                 0xFF
             })
             Name (NOVT, Package (0x05)
             {
-                0x0001ADB0, 
-                0x0001D4C0, 
-                0x0001FBD0, 
-                0x000222E0, 
+                0x0001ADB0,
+                0x0001D4C0,
+                0x0001FBD0,
+                0x000222E0,
                 0xFF
             })
             Method (BM01, 0, NotSerialized)
@@ -716,19 +716,15 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x00)
             }
 
-<<<<<<< HEAD
             Method (WROW, 4, Serialized)
-=======
-            Method (WROW, 4, NotSerialized)
->>>>>>> 18d6b9a63f59a5175513763548c02268c727bf80
             {
                 Name (IFPK, Package (0x06)
                 {
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
                     0x00
                 })
                 CreateDWordField (Arg0, 0x00, BUF0)
@@ -754,15 +750,15 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 }
             }
 
-            Method (GROW, 4, NotSerialized)
+            Method (GROW, 4, Serialized)
             {
                 Name (IFPK, Package (0x06)
                 {
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
                     0x00
                 })
                 Local0 = Arg3
@@ -875,7 +871,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             OperationRegion (ACMS, SystemIO, 0x72, 0x02)
             Field (ACMS, ByteAcc, NoLock, Preserve)
             {
-                P72,    8, 
+                P72,    8,
                 P73,    8
             }
 
@@ -1000,7 +996,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 If (((DerefOf (TSBF [0x1F]) & 0x80) == 0x00))
                 {
                     TSBF [0x0F] = 0x90
-                    TSBF [0x11] = ((DerefOf (TSBF [0x11]) & 
+                    TSBF [0x11] = ((DerefOf (TSBF [0x11]) &
                         0x8F) | 0x10)
                     TSBF [0x1F] = TSBF [0x1F] = (DerefOf (
                         TSBF [0x1F]) | 0x80)
@@ -1012,14 +1008,14 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     {
                         GFXD = 0x0A
                         TSBF [0x10] = 0xE8
-                        TSBF [0x11] = ((DerefOf (TSBF [0x11]) & 
+                        TSBF [0x11] = ((DerefOf (TSBF [0x11]) &
                             0xF8) | 0x03)
                     }
                     Else
                     {
                         GFXD = 0x06
                         TSBF [0x10] = 0x58
-                        TSBF [0x11] = ((DerefOf (TSBF [0x11]) & 
+                        TSBF [0x11] = ((DerefOf (TSBF [0x11]) &
                             0xF8) | 0x02)
                     }
 
@@ -1413,57 +1409,57 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             {
                 Name (LODT, Package (0x34)
                 {
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
-                    0x00, 
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
                     0x00
                 })
                 Local0 = 0x00
@@ -1505,14 +1501,14 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Name (OBSV, Package (0x09)
             {
-                0x00, 
-                0x00, 
-                0x00, 
-                0x00, 
-                0x00, 
-                0x00, 
-                0x00, 
-                0x00, 
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
                 0x00
             })
             Method (APTS, 1, NotSerialized)
@@ -1968,7 +1964,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             {
                 If ((Arg0 == 0x00))
                 {
-                    If ((((Arg1 != 0x01) || (Arg1 != 0x02)) || 
+                    If ((((Arg1 != 0x01) || (Arg1 != 0x02)) ||
                         (Arg1 != 0x06)))
                     {
                         CreateDWordField (Arg2, 0x00, WIID)
@@ -2015,26 +2011,26 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
     OperationRegion (EXTM, SystemMemory, 0x000FF830, 0x12)
     Field (EXTM, WordAcc, NoLock, Preserve)
     {
-        ROM1,   16, 
-        RMS1,   16, 
-        ROM2,   16, 
-        RMS2,   16, 
-        ROM3,   16, 
-        RMS3,   16, 
-        AMEM,   32, 
+        ROM1,   16,
+        RMS1,   16,
+        ROM2,   16,
+        RMS2,   16,
+        ROM3,   16,
+        RMS3,   16,
+        AMEM,   32,
         AINF,   8
     }
 
     OperationRegion (AWYM, SystemMemory, 0x000FFFEA, 0x01)
     Field (AWYM, ByteAcc, NoLock, Preserve)
     {
-            ,   1, 
-            ,   1, 
-        AWMD,   1, 
-            ,   1, 
-            ,   1, 
-            ,   1, 
-            ,   1, 
+            ,   1,
+            ,   1,
+        AWMD,   1,
+            ,   1,
+            ,   1,
+            ,   1,
+            ,   1,
         Offset (0x01)
     }
 
@@ -2082,11 +2078,11 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
     OperationRegion (INFO, SystemMemory, 0x000FF840, 0x01)
     Field (INFO, ByteAcc, NoLock, Preserve)
     {
-        KBDI,   1, 
-        RTCW,   1, 
-        PS2F,   1, 
-        IRFL,   2, 
-        DISE,   1, 
+        KBDI,   1,
+        RTCW,   1,
+        PS2F,   1,
+        IRFL,   2,
+        DISE,   1,
         SSHU,   1
     }
 
@@ -2512,449 +2508,449 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             {
                 Package (0x04)
                 {
-                    0x0002FFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x0002FFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0002FFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x0002FFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0002FFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x0002FFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0002FFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x0002FFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0003FFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x0003FFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0003FFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x0003FFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0003FFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x0003FFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0003FFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x0003FFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0004FFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x0004FFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0004FFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x0004FFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0004FFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x0004FFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0004FFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x0004FFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0005FFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x0005FFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0005FFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x0005FFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0005FFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x0005FFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0005FFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x0005FFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0006FFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x0006FFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0006FFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x0006FFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0006FFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x0006FFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0006FFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x0006FFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0007FFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x0007FFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0007FFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x0007FFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0007FFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x0007FFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0007FFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x0007FFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0009FFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x0009FFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0009FFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x0009FFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0009FFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x0009FFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0009FFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x0009FFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000AFFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x000AFFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000AFFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x000AFFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000AFFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x000AFFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000AFFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x000AFFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000BFFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x000BFFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000BFFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x000BFFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000BFFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x000BFFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000BFFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x000BFFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000CFFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x000CFFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000CFFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x000CFFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000CFFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x000CFFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000CFFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x000CFFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0014FFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x0014FFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0014FFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x0014FFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0014FFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x0014FFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0014FFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x0014FFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0012FFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x0012FFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0012FFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x0012FFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0012FFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x0012FFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0012FFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x0012FFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0013FFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNKC, 
+                    0x0013FFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNKC,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0013FFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNKD, 
+                    0x0013FFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNKD,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0013FFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNKA, 
+                    0x0013FFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNKA,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0013FFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNKB, 
+                    0x0013FFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNKB,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0011FFFF, 
-                    0x00, 
-                    \_SB.PCI0.LPC0.LNK0, 
+                    0x0011FFFF,
+                    0x00,
+                    \_SB.PCI0.LPC0.LNK0,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0011FFFF, 
-                    0x01, 
-                    \_SB.PCI0.LPC0.LNK0, 
+                    0x0011FFFF,
+                    0x01,
+                    \_SB.PCI0.LPC0.LNK0,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0011FFFF, 
-                    0x02, 
-                    \_SB.PCI0.LPC0.LNK0, 
+                    0x0011FFFF,
+                    0x02,
+                    \_SB.PCI0.LPC0.LNK0,
                     0x00
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0011FFFF, 
-                    0x03, 
-                    \_SB.PCI0.LPC0.LNK0, 
+                    0x0011FFFF,
+                    0x03,
+                    \_SB.PCI0.LPC0.LNK0,
                     0x00
                 }
             })
@@ -2962,425 +2958,425 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             {
                 Package (0x04)
                 {
-                    0x0002FFFF, 
-                    0x00, 
-                    0x00, 
+                    0x0002FFFF,
+                    0x00,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0002FFFF, 
-                    0x01, 
-                    0x00, 
+                    0x0002FFFF,
+                    0x01,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0002FFFF, 
-                    0x02, 
-                    0x00, 
+                    0x0002FFFF,
+                    0x02,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0002FFFF, 
-                    0x03, 
-                    0x00, 
+                    0x0002FFFF,
+                    0x03,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0003FFFF, 
-                    0x00, 
-                    0x00, 
+                    0x0003FFFF,
+                    0x00,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0003FFFF, 
-                    0x01, 
-                    0x00, 
+                    0x0003FFFF,
+                    0x01,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0003FFFF, 
-                    0x02, 
-                    0x00, 
+                    0x0003FFFF,
+                    0x02,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0003FFFF, 
-                    0x03, 
-                    0x00, 
+                    0x0003FFFF,
+                    0x03,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0004FFFF, 
-                    0x00, 
-                    0x00, 
+                    0x0004FFFF,
+                    0x00,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0004FFFF, 
-                    0x01, 
-                    0x00, 
+                    0x0004FFFF,
+                    0x01,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0004FFFF, 
-                    0x02, 
-                    0x00, 
+                    0x0004FFFF,
+                    0x02,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0004FFFF, 
-                    0x03, 
-                    0x00, 
+                    0x0004FFFF,
+                    0x03,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0005FFFF, 
-                    0x00, 
-                    0x00, 
+                    0x0005FFFF,
+                    0x00,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0005FFFF, 
-                    0x01, 
-                    0x00, 
+                    0x0005FFFF,
+                    0x01,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0005FFFF, 
-                    0x02, 
-                    0x00, 
+                    0x0005FFFF,
+                    0x02,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0005FFFF, 
-                    0x03, 
-                    0x00, 
+                    0x0005FFFF,
+                    0x03,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0006FFFF, 
-                    0x00, 
-                    0x00, 
+                    0x0006FFFF,
+                    0x00,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0006FFFF, 
-                    0x01, 
-                    0x00, 
+                    0x0006FFFF,
+                    0x01,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0006FFFF, 
-                    0x02, 
-                    0x00, 
+                    0x0006FFFF,
+                    0x02,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0006FFFF, 
-                    0x03, 
-                    0x00, 
+                    0x0006FFFF,
+                    0x03,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0007FFFF, 
-                    0x00, 
-                    0x00, 
+                    0x0007FFFF,
+                    0x00,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0007FFFF, 
-                    0x01, 
-                    0x00, 
+                    0x0007FFFF,
+                    0x01,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0007FFFF, 
-                    0x02, 
-                    0x00, 
+                    0x0007FFFF,
+                    0x02,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0007FFFF, 
-                    0x03, 
-                    0x00, 
+                    0x0007FFFF,
+                    0x03,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0009FFFF, 
-                    0x00, 
-                    0x00, 
+                    0x0009FFFF,
+                    0x00,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0009FFFF, 
-                    0x01, 
-                    0x00, 
+                    0x0009FFFF,
+                    0x01,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0009FFFF, 
-                    0x02, 
-                    0x00, 
+                    0x0009FFFF,
+                    0x02,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0009FFFF, 
-                    0x03, 
-                    0x00, 
+                    0x0009FFFF,
+                    0x03,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000AFFFF, 
-                    0x00, 
-                    0x00, 
+                    0x000AFFFF,
+                    0x00,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000AFFFF, 
-                    0x01, 
-                    0x00, 
+                    0x000AFFFF,
+                    0x01,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000AFFFF, 
-                    0x02, 
-                    0x00, 
+                    0x000AFFFF,
+                    0x02,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000AFFFF, 
-                    0x03, 
-                    0x00, 
+                    0x000AFFFF,
+                    0x03,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000BFFFF, 
-                    0x00, 
-                    0x00, 
+                    0x000BFFFF,
+                    0x00,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000BFFFF, 
-                    0x01, 
-                    0x00, 
+                    0x000BFFFF,
+                    0x01,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000BFFFF, 
-                    0x02, 
-                    0x00, 
+                    0x000BFFFF,
+                    0x02,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000BFFFF, 
-                    0x03, 
-                    0x00, 
+                    0x000BFFFF,
+                    0x03,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000CFFFF, 
-                    0x00, 
-                    0x00, 
+                    0x000CFFFF,
+                    0x00,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000CFFFF, 
-                    0x01, 
-                    0x00, 
+                    0x000CFFFF,
+                    0x01,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000CFFFF, 
-                    0x02, 
-                    0x00, 
+                    0x000CFFFF,
+                    0x02,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x000CFFFF, 
-                    0x03, 
-                    0x00, 
+                    0x000CFFFF,
+                    0x03,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0014FFFF, 
-                    0x00, 
-                    0x00, 
+                    0x0014FFFF,
+                    0x00,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0014FFFF, 
-                    0x01, 
-                    0x00, 
+                    0x0014FFFF,
+                    0x01,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0014FFFF, 
-                    0x02, 
-                    0x00, 
+                    0x0014FFFF,
+                    0x02,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0014FFFF, 
-                    0x03, 
-                    0x00, 
+                    0x0014FFFF,
+                    0x03,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0012FFFF, 
-                    0x00, 
-                    0x00, 
+                    0x0012FFFF,
+                    0x00,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0012FFFF, 
-                    0x01, 
-                    0x00, 
+                    0x0012FFFF,
+                    0x01,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0012FFFF, 
-                    0x02, 
-                    0x00, 
+                    0x0012FFFF,
+                    0x02,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0012FFFF, 
-                    0x03, 
-                    0x00, 
+                    0x0012FFFF,
+                    0x03,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0013FFFF, 
-                    0x00, 
-                    0x00, 
+                    0x0013FFFF,
+                    0x00,
+                    0x00,
                     0x12
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0013FFFF, 
-                    0x01, 
-                    0x00, 
+                    0x0013FFFF,
+                    0x01,
+                    0x00,
                     0x13
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0013FFFF, 
-                    0x02, 
-                    0x00, 
+                    0x0013FFFF,
+                    0x02,
+                    0x00,
                     0x10
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0013FFFF, 
-                    0x03, 
-                    0x00, 
+                    0x0013FFFF,
+                    0x03,
+                    0x00,
                     0x11
-                }, 
+                },
 
                 Package (0x04)
                 {
-                    0x0011FFFF, 
-                    0x00, 
-                    0x00, 
+                    0x0011FFFF,
+                    0x00,
+                    0x00,
                     0x16
                 }
             })
@@ -3404,9 +3400,9 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Field (\_SB.PCI0.SMB0.HETT, ByteAcc, NoLock, Preserve)
                     {
-                        HP0,    8, 
-                            ,   2, 
-                        HPTF,   1, 
+                        HP0,    8,
+                            ,   2,
+                        HPTF,   1,
                         Offset (0x02)
                     }
                 }
@@ -3417,7 +3413,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Name (_ADR, 0x00120000)  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
-                    0x0B, 
+                    0x0B,
                     0x03
                 })
                 Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
@@ -3438,7 +3434,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Name (_ADR, 0x00120001)  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
-                    0x0B, 
+                    0x0B,
                     0x03
                 })
                 Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
@@ -3459,7 +3455,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Name (_ADR, 0x00120002)  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
-                    0x0B, 
+                    0x0B,
                     0x03
                 })
                 Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
@@ -3480,7 +3476,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Name (_ADR, 0x00130000)  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
-                    0x0B, 
+                    0x0B,
                     0x03
                 })
                 Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
@@ -3501,7 +3497,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Name (_ADR, 0x00130001)  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
-                    0x0B, 
+                    0x0B,
                     0x03
                 })
                 Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
@@ -3522,7 +3518,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Name (_ADR, 0x00130002)  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
-                    0x0B, 
+                    0x0B,
                     0x03
                 })
                 Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
@@ -3543,7 +3539,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Name (_ADR, 0x00140005)  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
-                    0x0B, 
+                    0x0B,
                     0x03
                 })
                 Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
@@ -3565,15 +3561,15 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 OperationRegion (PCI, PCI_Config, 0x00, 0x0100)
                 Field (PCI, AnyAcc, NoLock, Preserve)
                 {
-                    Offset (0x42), 
-                    DNSP,   1, 
-                    DNSO,   1, 
+                    Offset (0x42),
+                    DNSP,   1,
+                    DNSO,   1,
                     ENSR,   1
                 }
 
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
-                    0x1B, 
+                    0x1B,
                     0x04
                 })
             }
@@ -3584,7 +3580,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 OperationRegion (SACS, PCI_Config, 0x00, 0x40)
                 Field (SACS, AnyAcc, NoLock, Preserve)
                 {
-                    Offset (0x24), 
+                    Offset (0x24),
                     STB5,   32
                 }
 
@@ -3614,21 +3610,21 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             OperationRegion (BAR, SystemMemory, STB5, 0x0400)
                             Field (BAR, AnyAcc, NoLock, Preserve)
                             {
-                                Offset (0x120), 
-                                    ,   7, 
-                                PMBY,   1, 
-                                Offset (0x128), 
-                                PMS0,   4, 
-                                Offset (0x129), 
-                                PMS1,   4, 
-                                Offset (0x220), 
-                                    ,   7, 
-                                PSBY,   1, 
-                                Offset (0x228), 
-                                PSS0,   4, 
-                                Offset (0x229), 
-                                PSS1,   4, 
-                                Offset (0x2A0), 
+                                Offset (0x120),
+                                    ,   7,
+                                PMBY,   1,
+                                Offset (0x128),
+                                PMS0,   4,
+                                Offset (0x129),
+                                PMS1,   4,
+                                Offset (0x220),
+                                    ,   7,
+                                PSBY,   1,
+                                Offset (0x228),
+                                PSS0,   4,
+                                Offset (0x229),
+                                PSS1,   4,
+                                Offset (0x2A0),
                                     ,   7
                             }
 
@@ -3679,9 +3675,9 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                                 OperationRegion (BAR, SystemMemory, STB5, 0x0400)
                                 Field (BAR, AnyAcc, NoLock, Preserve)
                                 {
-                                    Offset (0x128), 
-                                    PMS0,   4, 
-                                    Offset (0x129), 
+                                    Offset (0x128),
+                                    PMS0,   4,
+                                    Offset (0x129),
                                     PMS1,   4
                                 }
 
@@ -3708,8 +3704,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                                 OperationRegion (BAR, SystemMemory, STB5, 0x0400)
                                 Field (BAR, AnyAcc, NoLock, Preserve)
                                 {
-                                    Offset (0x120), 
-                                        ,   7, 
+                                    Offset (0x120),
+                                        ,   7,
                                     PMBY,   1
                                 }
 
@@ -3745,9 +3741,9 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                                 OperationRegion (BAR, SystemMemory, STB5, 0x0400)
                                 Field (BAR, AnyAcc, NoLock, Preserve)
                                 {
-                                    Offset (0x228), 
-                                    PSS0,   4, 
-                                    Offset (0x229), 
+                                    Offset (0x228),
+                                    PSS0,   4,
+                                    Offset (0x229),
                                     PSS1,   4
                                 }
 
@@ -3774,8 +3770,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                                 OperationRegion (BAR, SystemMemory, STB5, 0x0400)
                                 Field (BAR, AnyAcc, NoLock, Preserve)
                                 {
-                                    Offset (0x220), 
-                                        ,   7, 
+                                    Offset (0x220),
+                                        ,   7,
                                     PSBY,   1
                                 }
 
@@ -3822,20 +3818,20 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             OperationRegion (BAR, SystemMemory, STB5, 0x0400)
                             Field (BAR, AnyAcc, NoLock, Preserve)
                             {
-                                Offset (0x1A0), 
-                                    ,   7, 
-                                SMBY,   1, 
-                                Offset (0x1A8), 
-                                SMS0,   4, 
-                                Offset (0x1A9), 
-                                SMS1,   4, 
-                                Offset (0x2A0), 
-                                    ,   7, 
-                                SSBY,   1, 
-                                Offset (0x2A8), 
-                                SSS0,   4, 
-                                Offset (0x2A9), 
-                                SSS1,   4, 
+                                Offset (0x1A0),
+                                    ,   7,
+                                SMBY,   1,
+                                Offset (0x1A8),
+                                SMS0,   4,
+                                Offset (0x1A9),
+                                SMS1,   4,
+                                Offset (0x2A0),
+                                    ,   7,
+                                SSBY,   1,
+                                Offset (0x2A8),
+                                SSS0,   4,
+                                Offset (0x2A9),
+                                SSS1,   4,
                                 Offset (0x2AC)
                             }
 
@@ -3886,9 +3882,9 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                                 OperationRegion (BAR, SystemMemory, STB5, 0x0400)
                                 Field (BAR, AnyAcc, NoLock, Preserve)
                                 {
-                                    Offset (0x1A8), 
-                                    SMS0,   4, 
-                                    Offset (0x1A9), 
+                                    Offset (0x1A8),
+                                    SMS0,   4,
+                                    Offset (0x1A9),
                                     SMS1,   4
                                 }
 
@@ -3915,8 +3911,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                                 OperationRegion (BAR, SystemMemory, STB5, 0x1000)
                                 Field (BAR, AnyAcc, NoLock, Preserve)
                                 {
-                                    Offset (0x1A0), 
-                                        ,   7, 
+                                    Offset (0x1A0),
+                                        ,   7,
                                     SMBY,   1
                                 }
 
@@ -3952,9 +3948,9 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                                 OperationRegion (BAR, SystemMemory, STB5, 0x0400)
                                 Field (BAR, AnyAcc, NoLock, Preserve)
                                 {
-                                    Offset (0x2A8), 
-                                    SSS0,   4, 
-                                    Offset (0x2A9), 
+                                    Offset (0x2A8),
+                                    SSS0,   4,
+                                    Offset (0x2A9),
                                     SSS1,   4
                                 }
 
@@ -3981,8 +3977,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                                 OperationRegion (BAR, SystemMemory, STB5, 0x0400)
                                 Field (BAR, AnyAcc, NoLock, Preserve)
                                 {
-                                    Offset (0x2A0), 
-                                        ,   7, 
+                                    Offset (0x2A0),
+                                        ,   7,
                                     SSBY,   1
                                 }
 
@@ -4153,7 +4149,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 OperationRegion (PIRQ, SystemIO, 0x0C00, 0x02)
                 Field (PIRQ, ByteAcc, NoLock, Preserve)
                 {
-                    PIID,   8, 
+                    PIID,   8,
                     PIDA,   8
                 }
 
@@ -4164,15 +4160,15 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 })
                 IndexField (PIID, PIDA, ByteAcc, NoLock, Preserve)
                 {
-                    PIRA,   8, 
-                    PIRB,   8, 
-                    PIRC,   8, 
-                    PIRD,   8, 
-                    PIRS,   8, 
-                    Offset (0x09), 
-                    PIRE,   8, 
-                    PIRF,   8, 
-                    PIR0,   8, 
+                    PIRA,   8,
+                    PIRB,   8,
+                    PIRC,   8,
+                    PIRD,   8,
+                    PIRS,   8,
+                    Offset (0x09),
+                    PIRE,   8,
+                    PIRF,   8,
+                    PIR0,   8,
                     PIR1,   8
                 }
 
@@ -4805,7 +4801,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Return (Package (0x02)
                     {
-                        0x04, 
+                        0x04,
                         0x05
                     })
                 }
@@ -4814,33 +4810,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0x0006FFFF, 
-                        0x00, 
-                        \_SB.PCI0.LPC0.LNKE, 
+                        0x0006FFFF,
+                        0x00,
+                        \_SB.PCI0.LPC0.LNKE,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0006FFFF, 
-                        0x01, 
-                        \_SB.PCI0.LPC0.LNKF, 
+                        0x0006FFFF,
+                        0x01,
+                        \_SB.PCI0.LPC0.LNKF,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0006FFFF, 
-                        0x02, 
-                        \_SB.PCI0.LPC0.LNK0, 
+                        0x0006FFFF,
+                        0x02,
+                        \_SB.PCI0.LPC0.LNK0,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0006FFFF, 
-                        0x03, 
-                        \_SB.PCI0.LPC0.LNK1, 
+                        0x0006FFFF,
+                        0x03,
+                        \_SB.PCI0.LPC0.LNK1,
                         0x00
                     }
                 })
@@ -4848,33 +4844,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0x0006FFFF, 
-                        0x00, 
-                        0x00, 
+                        0x0006FFFF,
+                        0x00,
+                        0x00,
                         0x14
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0006FFFF, 
-                        0x01, 
-                        0x00, 
+                        0x0006FFFF,
+                        0x01,
+                        0x00,
                         0x15
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0006FFFF, 
-                        0x02, 
-                        0x00, 
+                        0x0006FFFF,
+                        0x02,
+                        0x00,
                         0x16
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0006FFFF, 
-                        0x03, 
-                        0x00, 
+                        0x0006FFFF,
+                        0x03,
+                        0x00,
                         0x17
                     }
                 })
@@ -4896,63 +4892,63 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Name (_ADR, 0x00140001)  // _ADR: Address
                 Name (UDMT, Package (0x08)
                 {
-                    0x78, 
-                    0x5A, 
-                    0x3C, 
-                    0x2D, 
-                    0x1E, 
-                    0x14, 
-                    0x0F, 
+                    0x78,
+                    0x5A,
+                    0x3C,
+                    0x2D,
+                    0x1E,
+                    0x14,
+                    0x0F,
                     0x00
                 })
                 Name (PIOT, Package (0x06)
                 {
-                    0x0258, 
-                    0x0186, 
-                    0x010E, 
-                    0xB4, 
-                    0x78, 
+                    0x0258,
+                    0x0186,
+                    0x010E,
+                    0xB4,
+                    0x78,
                     0x00
                 })
                 Name (PITR, Package (0x06)
                 {
-                    0x99, 
-                    0x47, 
-                    0x34, 
-                    0x22, 
-                    0x20, 
+                    0x99,
+                    0x47,
+                    0x34,
+                    0x22,
+                    0x20,
                     0x99
                 })
                 Name (MDMT, Package (0x04)
                 {
-                    0x01E0, 
-                    0x96, 
-                    0x78, 
+                    0x01E0,
+                    0x96,
+                    0x78,
                     0x00
                 })
                 Name (MDTR, Package (0x04)
                 {
-                    0x77, 
-                    0x21, 
-                    0x20, 
+                    0x77,
+                    0x21,
+                    0x20,
                     0xFF
                 })
                 OperationRegion (IDE, PCI_Config, 0x40, 0x20)
                 Field (IDE, AnyAcc, NoLock, Preserve)
                 {
-                    PPIT,   16, 
-                    SPIT,   16, 
-                    PMDT,   16, 
-                    SMDT,   16, 
-                    PPIC,   8, 
-                    SPIC,   8, 
-                    PPIM,   8, 
-                    SPIM,   8, 
-                    Offset (0x14), 
-                    PUDC,   2, 
-                    SUDC,   2, 
-                    Offset (0x16), 
-                    PUDM,   8, 
+                    PPIT,   16,
+                    SPIT,   16,
+                    PMDT,   16,
+                    SMDT,   16,
+                    PPIC,   8,
+                    SPIC,   8,
+                    PPIM,   8,
+                    SPIM,   8,
+                    Offset (0x14),
+                    PUDC,   2,
+                    SUDC,   2,
+                    Offset (0x16),
+                    PUDM,   8,
                     SUDM,   8
                 }
 
@@ -5295,7 +5291,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Return (Package (0x02)
                     {
-                        0x18, 
+                        0x18,
                         0x04
                     })
                 }
@@ -5304,33 +5300,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        LNKC, 
+                        0xFFFF,
+                        0x00,
+                        LNKC,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        LNKD, 
+                        0xFFFF,
+                        0x01,
+                        LNKD,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        LNKA, 
+                        0xFFFF,
+                        0x02,
+                        LNKA,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        LNKB, 
+                        0xFFFF,
+                        0x03,
+                        LNKB,
                         0x00
                     }
                 })
@@ -5338,33 +5334,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        0x00, 
+                        0xFFFF,
+                        0x00,
+                        0x00,
                         0x12
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        0x00, 
+                        0xFFFF,
+                        0x01,
+                        0x00,
                         0x13
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        0x00, 
+                        0xFFFF,
+                        0x02,
+                        0x00,
                         0x10
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        0x00, 
+                        0xFFFF,
+                        0x03,
+                        0x00,
                         0x11
                     }
                 })
@@ -5388,7 +5384,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Return (Package (0x02)
                     {
-                        0x18, 
+                        0x18,
                         0x04
                     })
                 }
@@ -5397,33 +5393,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        LNKD, 
+                        0xFFFF,
+                        0x00,
+                        LNKD,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        LNKA, 
+                        0xFFFF,
+                        0x01,
+                        LNKA,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        LNKB, 
+                        0xFFFF,
+                        0x02,
+                        LNKB,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        LNKC, 
+                        0xFFFF,
+                        0x03,
+                        LNKC,
                         0x00
                     }
                 })
@@ -5431,33 +5427,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        0x00, 
+                        0xFFFF,
+                        0x00,
+                        0x00,
                         0x13
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        0x00, 
+                        0xFFFF,
+                        0x01,
+                        0x00,
                         0x10
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        0x00, 
+                        0xFFFF,
+                        0x02,
+                        0x00,
                         0x11
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        0x00, 
+                        0xFFFF,
+                        0x03,
+                        0x00,
                         0x12
                     }
                 })
@@ -5481,7 +5477,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Return (Package (0x02)
                     {
-                        0x18, 
+                        0x18,
                         0x04
                     })
                 }
@@ -5490,33 +5486,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        LNKA, 
+                        0xFFFF,
+                        0x00,
+                        LNKA,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        LNKB, 
+                        0xFFFF,
+                        0x01,
+                        LNKB,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        LNKC, 
+                        0xFFFF,
+                        0x02,
+                        LNKC,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        LNKD, 
+                        0xFFFF,
+                        0x03,
+                        LNKD,
                         0x00
                     }
                 })
@@ -5524,33 +5520,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        0x00, 
+                        0xFFFF,
+                        0x00,
+                        0x00,
                         0x10
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        0x00, 
+                        0xFFFF,
+                        0x01,
+                        0x00,
                         0x11
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        0x00, 
+                        0xFFFF,
+                        0x02,
+                        0x00,
                         0x12
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        0x00, 
+                        0xFFFF,
+                        0x03,
+                        0x00,
                         0x13
                     }
                 })
@@ -5574,7 +5570,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Return (Package (0x02)
                     {
-                        0x18, 
+                        0x18,
                         0x04
                     })
                 }
@@ -5583,33 +5579,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        LNKB, 
+                        0xFFFF,
+                        0x00,
+                        LNKB,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        LNKC, 
+                        0xFFFF,
+                        0x01,
+                        LNKC,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        LNKD, 
+                        0xFFFF,
+                        0x02,
+                        LNKD,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        LNKA, 
+                        0xFFFF,
+                        0x03,
+                        LNKA,
                         0x00
                     }
                 })
@@ -5617,33 +5613,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        0x00, 
+                        0xFFFF,
+                        0x00,
+                        0x00,
                         0x11
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        0x00, 
+                        0xFFFF,
+                        0x01,
+                        0x00,
                         0x12
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        0x00, 
+                        0xFFFF,
+                        0x02,
+                        0x00,
                         0x13
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        0x00, 
+                        0xFFFF,
+                        0x03,
+                        0x00,
                         0x10
                     }
                 })
@@ -5667,7 +5663,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Return (Package (0x02)
                     {
-                        0x18, 
+                        0x18,
                         0x04
                     })
                 }
@@ -5676,33 +5672,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        LNKC, 
+                        0xFFFF,
+                        0x00,
+                        LNKC,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        LNKD, 
+                        0xFFFF,
+                        0x01,
+                        LNKD,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        LNKA, 
+                        0xFFFF,
+                        0x02,
+                        LNKA,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        LNKB, 
+                        0xFFFF,
+                        0x03,
+                        LNKB,
                         0x00
                     }
                 })
@@ -5710,33 +5706,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        0x00, 
+                        0xFFFF,
+                        0x00,
+                        0x00,
                         0x12
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        0x00, 
+                        0xFFFF,
+                        0x01,
+                        0x00,
                         0x13
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        0x00, 
+                        0xFFFF,
+                        0x02,
+                        0x00,
                         0x10
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        0x00, 
+                        0xFFFF,
+                        0x03,
+                        0x00,
                         0x11
                     }
                 })
@@ -5760,7 +5756,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Return (Package (0x02)
                     {
-                        0x18, 
+                        0x18,
                         0x04
                     })
                 }
@@ -5769,33 +5765,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        LNKD, 
+                        0xFFFF,
+                        0x00,
+                        LNKD,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        LNKA, 
+                        0xFFFF,
+                        0x01,
+                        LNKA,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        LNKB, 
+                        0xFFFF,
+                        0x02,
+                        LNKB,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        LNKC, 
+                        0xFFFF,
+                        0x03,
+                        LNKC,
                         0x00
                     }
                 })
@@ -5803,33 +5799,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        0x00, 
+                        0xFFFF,
+                        0x00,
+                        0x00,
                         0x13
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        0x00, 
+                        0xFFFF,
+                        0x01,
+                        0x00,
                         0x10
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        0x00, 
+                        0xFFFF,
+                        0x02,
+                        0x00,
                         0x11
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        0x00, 
+                        0xFFFF,
+                        0x03,
+                        0x00,
                         0x12
                     }
                 })
@@ -5853,7 +5849,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Return (Package (0x02)
                     {
-                        0x18, 
+                        0x18,
                         0x04
                     })
                 }
@@ -5862,33 +5858,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        LNKB, 
+                        0xFFFF,
+                        0x00,
+                        LNKB,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        LNKC, 
+                        0xFFFF,
+                        0x01,
+                        LNKC,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        LNKD, 
+                        0xFFFF,
+                        0x02,
+                        LNKD,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        LNKA, 
+                        0xFFFF,
+                        0x03,
+                        LNKA,
                         0x00
                     }
                 })
@@ -5896,33 +5892,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        0x00, 
+                        0xFFFF,
+                        0x00,
+                        0x00,
                         0x11
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        0x00, 
+                        0xFFFF,
+                        0x01,
+                        0x00,
                         0x12
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        0x00, 
+                        0xFFFF,
+                        0x02,
+                        0x00,
                         0x13
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        0x00, 
+                        0xFFFF,
+                        0x03,
+                        0x00,
                         0x10
                     }
                 })
@@ -5946,7 +5942,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Return (Package (0x02)
                     {
-                        0x18, 
+                        0x18,
                         0x04
                     })
                 }
@@ -5955,33 +5951,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        LNKC, 
+                        0xFFFF,
+                        0x00,
+                        LNKC,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        LNKD, 
+                        0xFFFF,
+                        0x01,
+                        LNKD,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        LNKA, 
+                        0xFFFF,
+                        0x02,
+                        LNKA,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        LNKB, 
+                        0xFFFF,
+                        0x03,
+                        LNKB,
                         0x00
                     }
                 })
@@ -5989,33 +5985,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        0x00, 
+                        0xFFFF,
+                        0x00,
+                        0x00,
                         0x12
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        0x00, 
+                        0xFFFF,
+                        0x01,
+                        0x00,
                         0x13
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        0x00, 
+                        0xFFFF,
+                        0x02,
+                        0x00,
                         0x10
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        0x00, 
+                        0xFFFF,
+                        0x03,
+                        0x00,
                         0x11
                     }
                 })
@@ -6039,7 +6035,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Return (Package (0x02)
                     {
-                        0x18, 
+                        0x18,
                         0x04
                     })
                 }
@@ -6048,33 +6044,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        LNKD, 
+                        0xFFFF,
+                        0x00,
+                        LNKD,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        LNKA, 
+                        0xFFFF,
+                        0x01,
+                        LNKA,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        LNKB, 
+                        0xFFFF,
+                        0x02,
+                        LNKB,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        LNKC, 
+                        0xFFFF,
+                        0x03,
+                        LNKC,
                         0x00
                     }
                 })
@@ -6082,33 +6078,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        0x00, 
+                        0xFFFF,
+                        0x00,
+                        0x00,
                         0x13
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        0x00, 
+                        0xFFFF,
+                        0x01,
+                        0x00,
                         0x10
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        0x00, 
+                        0xFFFF,
+                        0x02,
+                        0x00,
                         0x11
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        0x00, 
+                        0xFFFF,
+                        0x03,
+                        0x00,
                         0x12
                     }
                 })
@@ -6132,7 +6128,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Return (Package (0x02)
                     {
-                        0x18, 
+                        0x18,
                         0x04
                     })
                 }
@@ -6141,33 +6137,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        LNKA, 
+                        0xFFFF,
+                        0x00,
+                        LNKA,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        LNKB, 
+                        0xFFFF,
+                        0x01,
+                        LNKB,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        LNKC, 
+                        0xFFFF,
+                        0x02,
+                        LNKC,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        LNKD, 
+                        0xFFFF,
+                        0x03,
+                        LNKD,
                         0x00
                     }
                 })
@@ -6175,33 +6171,33 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x00, 
-                        0x00, 
+                        0xFFFF,
+                        0x00,
+                        0x00,
                         0x10
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x01, 
-                        0x00, 
+                        0xFFFF,
+                        0x01,
+                        0x00,
                         0x11
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x02, 
-                        0x00, 
+                        0xFFFF,
+                        0x02,
+                        0x00,
                         0x12
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0xFFFF, 
-                        0x03, 
-                        0x00, 
+                        0xFFFF,
+                        0x03,
+                        0x00,
                         0x13
                     }
                 })
@@ -6238,49 +6234,49 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 OperationRegion (WIN1, SystemIO, 0x2E, 0x02)
                 Field (WIN1, ByteAcc, NoLock, Preserve)
                 {
-                    INDP,   8, 
+                    INDP,   8,
                     DATP,   8
                 }
 
                 OperationRegion (GPIO, SystemIO, 0x0800, 0x05)
                 Field (GPIO, ByteAcc, NoLock, Preserve)
                 {
-                    GO01,   8, 
-                    GO02,   8, 
-                    GO03,   8, 
-                    GO04,   8, 
+                    GO01,   8,
+                    GO02,   8,
+                    GO03,   8,
+                    GO04,   8,
                     GO05,   8
                 }
 
                 IndexField (INDP, DATP, ByteAcc, NoLock, Preserve)
                 {
-                    Offset (0x02), 
-                    CFG,    8, 
-                    Offset (0x07), 
-                    LDN,    8, 
-                    Offset (0x20), 
-                    IDHI,   8, 
-                    IDLO,   8, 
-                    POWC,   8, 
-                    Offset (0x30), 
-                    ACTR,   8, 
-                    Offset (0x60), 
-                    IOAH,   8, 
-                    IOAL,   8, 
-                    IO2H,   8, 
-                    IO2L,   8, 
-                    Offset (0x70), 
-                    INTR,   8, 
-                    Offset (0x72), 
-                    INT1,   8, 
-                    Offset (0x74), 
-                    DMCH,   8, 
-                    Offset (0xC0), 
-                    GP40,   8, 
-                    Offset (0xF0), 
-                    OPT1,   8, 
-                    OPT2,   8, 
-                    OPT3,   8, 
+                    Offset (0x02),
+                    CFG,    8,
+                    Offset (0x07),
+                    LDN,    8,
+                    Offset (0x20),
+                    IDHI,   8,
+                    IDLO,   8,
+                    POWC,   8,
+                    Offset (0x30),
+                    ACTR,   8,
+                    Offset (0x60),
+                    IOAH,   8,
+                    IOAL,   8,
+                    IO2H,   8,
+                    IO2L,   8,
+                    Offset (0x70),
+                    INTR,   8,
+                    Offset (0x72),
+                    INT1,   8,
+                    Offset (0x74),
+                    DMCH,   8,
+                    Offset (0xC0),
+                    GP40,   8,
+                    Offset (0xF0),
+                    OPT1,   8,
+                    OPT2,   8,
+                    OPT3,   8,
                     OPT4,   8
                 }
 
@@ -6881,8 +6877,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             OperationRegion (KBCT, SystemIO, 0x60, 0x05)
             Field (KBCT, ByteAcc, NoLock, Preserve)
             {
-                P060,   8, 
-                Offset (0x04), 
+                P060,   8,
+                Offset (0x04),
                 P064,   8
             }
 
@@ -7032,7 +7028,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             {
                 Return (Package (0x02)
                 {
-                    0x03, 
+                    0x03,
                     0x05
                 })
             }
@@ -7041,7 +7037,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             {
                 Return (Package (0x02)
                 {
-                    0x03, 
+                    0x03,
                     0x05
                 })
             }
@@ -7050,7 +7046,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             {
                 Return (Package (0x02)
                 {
-                    0x04, 
+                    0x04,
                     0x05
                 })
             }
@@ -7062,49 +7058,49 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0x0005FFFF, 
-                        0x00, 
-                        \_SB.PCI0.LPC0.LNKC, 
+                        0x0005FFFF,
+                        0x00,
+                        \_SB.PCI0.LPC0.LNKC,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0005FFFF, 
-                        0x01, 
-                        \_SB.PCI0.LPC0.LNKD, 
+                        0x0005FFFF,
+                        0x01,
+                        \_SB.PCI0.LPC0.LNKD,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0005FFFF, 
-                        0x02, 
-                        \_SB.PCI0.LPC0.LNKA, 
+                        0x0005FFFF,
+                        0x02,
+                        \_SB.PCI0.LPC0.LNKA,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0005FFFF, 
-                        0x03, 
-                        \_SB.PCI0.LPC0.LNKB, 
+                        0x0005FFFF,
+                        0x03,
+                        \_SB.PCI0.LPC0.LNKB,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0007FFFF, 
-                        0x00, 
-                        \_SB.PCI0.LPC0.LNKA, 
+                        0x0007FFFF,
+                        0x00,
+                        \_SB.PCI0.LPC0.LNKA,
                         0x00
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0007FFFF, 
-                        0x01, 
-                        \_SB.PCI0.LPC0.LNKD, 
+                        0x0007FFFF,
+                        0x01,
+                        \_SB.PCI0.LPC0.LNKD,
                         0x00
                     }
                 })
@@ -7112,49 +7108,49 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Package (0x04)
                     {
-                        0x0005FFFF, 
-                        0x00, 
-                        0x00, 
+                        0x0005FFFF,
+                        0x00,
+                        0x00,
                         0x12
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0005FFFF, 
-                        0x01, 
-                        0x00, 
+                        0x0005FFFF,
+                        0x01,
+                        0x00,
                         0x13
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0005FFFF, 
-                        0x02, 
-                        0x00, 
+                        0x0005FFFF,
+                        0x02,
+                        0x00,
                         0x10
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0005FFFF, 
-                        0x03, 
-                        0x00, 
+                        0x0005FFFF,
+                        0x03,
+                        0x00,
                         0x11
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0007FFFF, 
-                        0x00, 
-                        0x00, 
+                        0x0007FFFF,
+                        0x00,
+                        0x00,
                         0x10
-                    }, 
+                    },
 
                     Package (0x04)
                     {
-                        0x0007FFFF, 
-                        0x01, 
-                        0x00, 
+                        0x0007FFFF,
+                        0x01,
+                        0x00,
                         0x13
                     }
                 })
@@ -7329,4 +7325,3 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
         }
     }
 }
-
