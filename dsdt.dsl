@@ -716,7 +716,11 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x00)
             }
 
+<<<<<<< HEAD
             Method (WROW, 4, Serialized)
+=======
+            Method (WROW, 4, NotSerialized)
+>>>>>>> 18d6b9a63f59a5175513763548c02268c727bf80
             {
                 Name (IFPK, Package (0x06)
                 {
