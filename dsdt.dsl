@@ -1405,7 +1405,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x00)
             }
 
-            Method (AM08, 1, NotSerialized)
+            Method (AM08, 1, Serialized)
             {
                 Name (LODT, Package (0x34)
                 {
