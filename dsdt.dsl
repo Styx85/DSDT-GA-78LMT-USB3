@@ -894,7 +894,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return ((0x08 - Local1))
             }
 
-            Method (GCMS, 1, NotSerialized)
+            Method (GCMS, 1, Serialized)
             {
                 Name (ADDR, 0x00)
                 Name (MASK, 0x00)
