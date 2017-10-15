@@ -6361,9 +6361,9 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         DMA (Compatibility, NotBusMaster, Transfer8, )
                             {2}
                     })
-                    CreateByteField (BUF0, \_SB.PCI0.FDC0._CRS._Y02._MIN, IOLO)  // _MIN: Minimum Base Address
+                    CreateWordField (BUF0, \_SB.PCI0.FDC0._CRS._Y02._MIN, IOLO)  // _MIN: Minimum Base Address
                     CreateByteField (BUF0, 0x03, IOHI)
-                    CreateByteField (BUF0, \_SB.PCI0.FDC0._CRS._Y02._MAX, IORL)  // _MAX: Maximum Base Address
+                    CreateWordField (BUF0, \_SB.PCI0.FDC0._CRS._Y02._MAX, IORL)  // _MAX: Maximum Base Address
                     CreateByteField (BUF0, 0x05, IORH)
                     ENFG ()
                     EXFG ()
