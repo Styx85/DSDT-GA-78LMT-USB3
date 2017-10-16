@@ -1,8 +1,12 @@
 # DSDT-GA-78LMT-USB3
 Try to FixUp GA-78LMT-USB3 DSDT Table
 
+
+
 Latest compiler run is down to 1 warning and 26 remarks. DSDT table is up and running again.
 It is important to set kernel boot line options explicitly to acpi_os_name='Windows 2009' to use all functions.
+
+
 
 Intel ACPI Component Architecture
 ASL+ Optimizing Compiler/Disassembler version 20170303
