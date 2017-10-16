@@ -2004,6 +2004,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         AM08 (WIID)
                     }
                 }
+                Return(Package(0x02){0x00, 0x00})
             }
         }
     }
