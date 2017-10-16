@@ -1,5 +1,5 @@
 # DSDT-GA-78LMT-USB3
-Try to FixUp GA-78LMT-USB3 DSDT Table
+**Try to FixUp GA-78LMT-USB3 DSDT Table**
 
 
 
@@ -8,30 +8,30 @@ It is important to set kernel boot line options explicitly to acpi_os_name='Wind
 
 
 
-Intel ACPI Component Architecture
-ASL+ Optimizing Compiler/Disassembler version 20170303
-Copyright (c) 2000 - 2017 Intel Corporation
-
-dsdt.dsl    684:             Method (BM05, 1, NotSerialized)
-Remark   2146 -                        ^ Method Argument is never used (Arg0)
-
-dsdt.dsl    688:             Method (EM05, 1, NotSerialized)
-Remark   2146 -                        ^ Method Argument is never used (Arg0)
-
-dsdt.dsl    696:             Method (HM07, 1, NotSerialized)
-Remark   2146 -                        ^ Method Argument is never used (Arg0)
-
-dsdt.dsl   1360:                 CreateDWordField (INFO, 0x00, IFID)
-Remark   2089 -                         Object is not referenced ^  (Name [IFID] is within a method [AM05])
-
-dsdt.dsl   1361:                 CreateDWordField (INFO, 0x04, IFMI)
-Remark   2089 -                         Object is not referenced ^  (Name [IFMI] is within a method [AM05])
-
-dsdt.dsl   1362:                 CreateDWordField (INFO, 0x08, IFMX)
-Remark   2089 -                         Object is not referenced ^  (Name [IFMX] is within a method [AM05])
-
-dsdt.dsl   1363:                 CreateDWordField (INFO, 0x0C, IFSP)
-Remark   2089 -                         Object is not referenced ^  (Name [IFSP] is within a method [AM05])
+>Intel ACPI Component Architecture
+>ASL+ Optimizing Compiler/Disassembler version 20170303
+>Copyright (c) 2000 - 2017 Intel Corporation
+>
+>dsdt.dsl    684:             Method (BM05, 1, NotSerialized)
+>Remark   2146 -                        ^ Method Argument is never used (Arg0)
+>
+>dsdt.dsl    688:             Method (EM05, 1, NotSerialized)
+>Remark   2146 -                        ^ Method Argument is never used (Arg0)
+>
+>dsdt.dsl    696:             Method (HM07, 1, NotSerialized)
+>Remark   2146 -                        ^ Method Argument is never used (Arg0)
+>
+>dsdt.dsl   1360:                 CreateDWordField (INFO, 0x00, IFID)
+>Remark   2089 -                         Object is not referenced ^  (Name [IFID] is within a method [AM05])
+>
+>dsdt.dsl   1361:                 CreateDWordField (INFO, 0x04, IFMI)
+>Remark   2089 -                         Object is not referenced ^  (Name [IFMI] is within a method [AM05])
+>
+>dsdt.dsl   1362:                 CreateDWordField (INFO, 0x08, IFMX)
+>Remark   2089 -                         Object is not referenced ^  (Name [IFMX] is within a method [AM05])
+>
+>dsdt.dsl   1363:                 CreateDWordField (INFO, 0x0C, IFSP)
+>Remark   2089 -                         Object is not referenced ^  (Name [IFSP] is within a method [AM05])
 
 dsdt.dsl   1364:                 CreateField (INFO, 0x80, 0x03, IFST)
 Remark   2089 -                          Object is not referenced ^  (Name [IFST] is within a method [AM05])
