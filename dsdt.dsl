@@ -310,7 +310,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             RSTU = One
         }
 
-        \PEWS = \PEWS
+        Store (PEWS, Local1)
+	Store (Local1, PEWS)
     }
 
     Method (TRMD, 1, NotSerialized)
@@ -2182,6 +2183,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
         {
             Notify (\_SB.PWRB, 0x02) // Device Wake
         }
+        Return(Package(0x02){0x00, 0x00})
     }
 
     Scope (\_SI)
