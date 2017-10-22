@@ -5,6 +5,26 @@
  *
  * Disassembling to symbolic ASL+ operators
  *
+ * Disassembly of dsdt.xxx, Sun Oct 22 13:45:40 2017
+ *
+ * Original Table Header:
+ *     Signature        "DSDT"
+ *     Length           0x00008ECB (36555)
+ *     Revision         0x01 **** 32-bit table (V1), no 64-bit math support
+ *     Checksum         0x4B **** Incorrect checksum, should be 0x7C
+ *     OEM ID           "GBT   "
+ *     OEM Table ID     "GBTUACPI"
+ *     OEM Revision     0x00001000 (4096)
+ *     Compiler ID      "INTL"
+ *     Compiler Version 0x20170929 (538380585)
+ */
+/*
+ * Intel ACPI Component Architecture
+ * AML/ASL+ Disassembler version 20170929 (64-bit version)
+ * Copyright (c) 2000 - 2017 Intel Corporation
+ *
+ * Disassembling to symbolic ASL+ operators
+ *
  * Disassembly of dsdt.aml, Sun Oct 22 12:22:15 2017
  *
  * Original Table Header:
@@ -24,7 +44,6 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
     External (LNKB, UnknownObj)
     External (LNKC, UnknownObj)
     External (LNKD, UnknownObj)
-
     Scope (_PR)
     {
         Processor (C000, 0x00, 0x00004010, 0x06){}
@@ -310,6 +329,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             RSTU = One
         }
 
+        /* \PEWS */
+
         Local1 = PEWS /* \PEWS */
         PEWS = Local1
     }
@@ -408,26 +429,36 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             Acquire (MSMB, 0xFFFF)
             If ((Arg0 == Zero))
             {
+                /* \SMSA */
+
                 Local0 = SMSA /* \SMSA */
                 Local0 &= Zero
                 Local0 |= 0xFF
                 SMSA = Local0
                 Sleep (0x02)
+                /* \SBAA */
+
                 Local0 = SBAA /* \SBAA */
                 Local0 &= Zero
                 Local0 |= Arg1
                 SBAA = Local0
                 Sleep (0x02)
+                /* \SHCA */
+
                 Local0 = SHCA /* \SHCA */
                 Local0 &= Zero
                 Local0 |= Arg2
                 SHCA = Local0
                 Sleep (0x02)
+                /* \SBCA */
+
                 Local0 = SBCA /* \SBCA */
                 Local0 &= Zero
                 Local0 |= 0x14
                 SBCA = Local0
                 Sleep (0x02)
+                /* \SD0A */
+
                 Local0 = SD0A /* \SD0A */
                 Local0 &= Zero
                 Local0 |= Arg3
@@ -448,14 +479,20 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
                 }
 
+                /* \SBCA */
+
                 Local0 = SBCA /* \SBCA */
                 Local0 &= Zero
                 Local0 |= 0x54
                 SBCA = Local0
                 Sleep (0x02)
+                /* \SMSA */
+
                 Local1 = SMSA /* \SMSA */
                 While (!(Local1 & One))
                 {
+                    /* \SMSA */
+
                     Local1 = SMSA /* \SMSA */
                     If ((Local1 & 0x1C))
                     {
@@ -471,9 +508,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Sleep (0x02)
                 }
 
+                /* \SMSA */
+
                 Local1 = SMSA /* \SMSA */
                 While ((Local1 & One))
                 {
+                    /* \SMSA */
+
                     Local1 = SMSA /* \SMSA */
                     Sleep (0x02)
                 }
@@ -485,6 +526,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Local2 = Arg3
                     While (Local2)
                     {
+                        /* \SBDA */
+
                         Arg4 [Local1] = SBDA /* \SBDA */
                         Sleep (0x02)
                         Local1++
@@ -518,6 +561,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
         {
             IOID = Arg0
             Return (IODT) /* \IODT */
+                /* \IODT */
         }
 
         Method (WSIO, 2, NotSerialized)
@@ -734,11 +778,23 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 CreateDWordField (Arg0, 0x0C, BUF3)
                 CreateDWordField (Arg0, 0x10, BUF4)
                 CreateDWordField (Arg0, 0x14, BUF5)
+                /* \AOD_.WROW.BUF0 */
+
                 IFPK [Zero] = BUF0 /* \AOD_.WROW.BUF0 */
+                /* \AOD_.WROW.BUF1 */
+
                 IFPK [One] = BUF1 /* \AOD_.WROW.BUF1 */
+                /* \AOD_.WROW.BUF2 */
+
                 IFPK [0x02] = BUF2 /* \AOD_.WROW.BUF2 */
+                /* \AOD_.WROW.BUF3 */
+
                 IFPK [0x03] = BUF3 /* \AOD_.WROW.BUF3 */
+                /* \AOD_.WROW.BUF4 */
+
                 IFPK [0x04] = BUF4 /* \AOD_.WROW.BUF4 */
+                /* \AOD_.WROW.BUF5 */
+
                 IFPK [0x05] = BUF5 /* \AOD_.WROW.BUF5 */
                 Local0 = Arg3
                 Local1 = Zero
@@ -835,11 +891,23 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     If ((LOID == BUF0))
                     {
+                        /* \AOD_.CBTP.BUF0 */
+
                         OBIT [(Local0 + Zero)] = BUF0 /* \AOD_.CBTP.BUF0 */
+                        /* \AOD_.CBTP.BUF1 */
+
                         OBIT [(Local0 + One)] = BUF1 /* \AOD_.CBTP.BUF1 */
+                        /* \AOD_.CBTP.BUF2 */
+
                         OBIT [(Local0 + 0x02)] = BUF2 /* \AOD_.CBTP.BUF2 */
+                        /* \AOD_.CBTP.BUF3 */
+
                         OBIT [(Local0 + 0x03)] = BUF3 /* \AOD_.CBTP.BUF3 */
+                        /* \AOD_.CBTP.BUF4 */
+
                         OBIT [(Local0 + 0x04)] = BUF4 /* \AOD_.CBTP.BUF4 */
+                        /* \AOD_.CBTP.BUF5 */
+
                         OBIT [(Local0 + 0x05)] = BUF5 /* \AOD_.CBTP.BUF5 */
                         Break
                     }
@@ -883,6 +951,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 While (Local1)
                 {
                     Local2 = (Arg0 & BIT0) /* \AOD_.BSF_.BIT0 */
+                    /* \AOD_.BSF_.BIT0 */
+
                     If (Local2)
                     {
                         Break
@@ -904,13 +974,18 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 CreateWordField (TEMP, 0x04, TMP2)
                 ADDR = (Arg0 & 0xFF)
                 MASK = (Arg0 >> 0x08)
+                /* \AOD_.GCMS.ADDR */
+
                 P72 = ADDR /* \AOD_.GCMS.ADDR */
+                /* \AOD_.P73_ */
+
                 Local0 = P73 /* \AOD_.P73_ */
                 Local0 &= MASK /* \AOD_.GCMS.MASK */
                 Local0 >>= BSF (MASK)
                 TMP1 = Zero
                 TMP2 = Local0
                 Return (TEMP) /* \AOD_.GCMS.TEMP */
+                        /* \AOD_.GCMS.TEMP */
             }
 
             Method (SCMS, 2, Serialized)
@@ -919,7 +994,11 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Name (MASK, Zero)
                 ADDR = (Arg0 & 0xFF)
                 MASK = (Arg0 >> 0x08)
+                /* \AOD_.SCMS.ADDR */
+
                 P72 = ADDR /* \AOD_.SCMS.ADDR */
+                /* \AOD_.P73_ */
+
                 Local0 = P73 /* \AOD_.P73_ */
                 Local1 = (Arg1 << BSF (MASK))
                 Local0 &= (~MASK & 0xFF)
@@ -938,11 +1017,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     GVB2 = One
                     GVB1 = Zero
                     Return (GVBF) /* \AOD_.GVBF */
+                                /* \AOD_.GVBF */
                 }
 
                 GVB2 = Zero
                 GVB1 = CCLK (Arg0)
                 Return (GVBF) /* \AOD_.GVBF */
+                        /* \AOD_.GVBF */
             }
 
             Method (SETC, 2, NotSerialized)
@@ -972,6 +1053,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 }
                 ElseIf ((Arg0 == 0x02))
                 {
+                    /* \AOD_.GFXD */
+
                     Local0 = GFXD /* \AOD_.GFXD */
                     Local1 = GCCX (0x10, 0x11, Zero)
                     Local2 = (Arg1 * Local0)
@@ -1051,6 +1134,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 If ((Arg0 == One))
                 {
                     CPUD = 0x02
+                    /* \AOD_.CPUD */
+
                     VCOD = CPUD /* \AOD_.CPUD */
                     VCOV = GCCX (0x0F, 0x11, 0x04)
                 }
@@ -1064,6 +1149,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     {
                         GFXD = 0x0A
                     }
+
+                    /* \AOD_.GFXD */
 
                     VCOD = GFXD /* \AOD_.GFXD */
                     VCOV = GCCX (0x10, 0x11, Zero)
@@ -1127,6 +1214,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (STAT)
                     {
                         Return (STAT) /* \AOD_.RMPC.STAT */
+                                        /* \AOD_.RMPC.STAT */
                     }
                 }
 
@@ -1212,6 +1300,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 If ((Arg0 == One))
                 {
+                    /* \GP59 */
+
                     Local0 = GP59 /* \GP59 */
                     Local0 <<= One
                     Local0 |= GP60 /* \GP60 */
@@ -1222,6 +1312,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 If ((Arg0 == 0x04))
                 {
+                    /* \GP55 */
+
                     Local0 = GP55 /* \GP55 */
                     Local0 <<= One
                     Local0 |= GP56 /* \GP56 */
@@ -1231,6 +1323,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 }
 
                 Return (GVBF) /* \AOD_.GVBF */
+                        /* \AOD_.GVBF */
             }
 
             Name (GF01, Zero)
@@ -1286,10 +1379,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 If (DBG)
                 {
                     Debug = "AM02"
+                    /* \AOD_.OBID */
+
                     Debug = OBID /* \AOD_.OBID */
                 }
 
                 Return (OBID) /* \AOD_.OBID */
+                        /* \AOD_.OBID */
             }
 
             Method (AM03, 1, NotSerialized)
@@ -1312,6 +1408,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     GVB1 = Zero
                     GVB2 = 0x04
+                    /* \AOD_.GVBF */
+
                     Local0 = GVBF /* \AOD_.GVBF */
                 }
 
@@ -1364,6 +1462,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 If (DBG)
                 {
                     Debug = "AM05"
+                    /* \AOD_.OBIT */
+
                     Debug = OBIT /* \AOD_.OBIT */
                 }
 
@@ -1371,7 +1471,11 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 If (DBG)
                 {
                     Debug = "ID"
+                    /* \AOD_.ID01 */
+
                     Debug = ID01 /* \AOD_.ID01 */
+                    /* \AOD_.ID02 */
+
                     Debug = ID02 /* \AOD_.ID02 */
                 }
 
@@ -1379,6 +1483,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 If (DBG)
                 {
                     Debug = "OBIT"
+                    /* \AOD_.OBIT */
+
                     Debug = OBIT /* \AOD_.OBIT */
                 }
 
@@ -1387,10 +1493,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 If (DBG)
                 {
                     Debug = "info"
+                    /* \AOD_.AM05.INFO */
+
                     Debug = INFO /* \AOD_.AM05.INFO */
                 }
 
                 Return (INFO) /* \AOD_.AM05.INFO */
+                        /* \AOD_.AM05.INFO */
             }
 
             Method (AM06, 0, NotSerialized)
@@ -1497,6 +1606,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 }
 
                 Return (LODT) /* \AOD_.AM08.LODT */
+                        /* \AOD_.AM08.LODT */
             }
 
             Name (OBSV, Package (0x09)
@@ -1524,11 +1634,15 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         If (((ID01 == One) && OCFL))
                         {
                             GETC (ID02)
+                            /* \AOD_.GVB1 */
+
                             Local3 = GVB1 /* \AOD_.GVB1 */
                         }
                         ElseIf (((ID01 == 0x02) && OVFL))
                         {
                             GETV (ID02)
+                            /* \AOD_.GVB1 */
+
                             Local3 = GVB1 /* \AOD_.GVB1 */
                         }
                         Else
@@ -1950,8 +2064,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 /* 0BB0 */  0x02, 0x26, 0x1A, 0x81, 0xE9, 0x0B, 0x21, 0x10,  // .&....!.
                 /* 0BB8 */  0xF9, 0xFF, 0x03                                 // ...
             })
-            Name (_HID, EisaId ("PNP0C14") /* Windows Management Instrumentation Device */)  // _HID: Hardware ID
-            Name (_UID, Zero)  // _UID: Unique ID
+            Name (_HID, EisaId ("PNP0C14") /* Windows Management Instrumentation Device */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+            Name (_UID, Zero)  /* _UID: Unique ID */  // _UID: Unique ID
             Name (_WDG, Buffer (0x28)
             {
                 /* 0000 */  0x6A, 0x0F, 0xBC, 0xAB, 0xA1, 0x8E, 0xD1, 0x11,  // j.......
@@ -2161,7 +2275,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
         AWAK (Arg0)
         If ((OSFL == One))
         {
-            Notify (\_SB.PWRB, 0x02) // Device Wake
+            Notify (\_SB.PWRB, 0x02) /* Device Wake */ // Device Wake
         }
         Else
         {
@@ -2170,7 +2284,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Local0 = (P1 & 0x04)
                 If ((Local0 == Zero))
                 {
-                    Notify (\_SB.PWRB, 0x02) // Device Wake
+                    Notify (\_SB.PWRB, 0x02) /* Device Wake */ // Device Wake
                 }
             }
 
@@ -2178,14 +2292,14 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             {
                 If ((RTCW == Zero))
                 {
-                    Notify (\_SB.PWRB, 0x02) // Device Wake
+                    Notify (\_SB.PWRB, 0x02) /* Device Wake */ // Device Wake
                 }
             }
         }
 
         If ((Arg0 == 0x04))
         {
-            Notify (\_SB.PWRB, 0x02) // Device Wake
+            Notify (\_SB.PWRB, 0x02) /* Device Wake */ // Device Wake
         }
 
         Return (Package (0x02)
@@ -2203,43 +2317,43 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
     {
         Method (_L04, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            Notify (\_SB.PCI0.P2P, 0x02) // Device Wake
+            Notify (\_SB.PCI0.P2P, 0x02) /* Device Wake */ // Device Wake
         }
 
         Method (_L18, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            Notify (\_SB.PCI0.PCE2, 0x02) // Device Wake
-            Notify (\_SB.PCI0.PCE3, 0x02) // Device Wake
-            Notify (\_SB.PCI0.PCE4, 0x02) // Device Wake
-            Notify (\_SB.PCI0.PCE5, 0x02) // Device Wake
-            Notify (\_SB.PCI0.PCE6, 0x02) // Device Wake
-            Notify (\_SB.PCI0.PCE7, 0x02) // Device Wake
-            Notify (\_SB.PCI0.PCE9, 0x02) // Device Wake
-            Notify (\_SB.PCI0.PCEA, 0x02) // Device Wake
-            Notify (\_SB.PCI0.PCEB, 0x02) // Device Wake
-            Notify (\_SB.PCI0.PCEC, 0x02) // Device Wake
+            Notify (\_SB.PCI0.PCE2, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.PCE3, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.PCE4, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.PCE5, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.PCE6, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.PCE7, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.PCE9, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.PCEA, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.PCEB, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.PCEC, 0x02) /* Device Wake */ // Device Wake
         }
 
         Method (_L03, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            Notify (\_SB.PCI0.PS2K, 0x02) // Device Wake
-            Notify (\_SB.PCI0.PS2M, 0x02) // Device Wake
+            Notify (\_SB.PCI0.PS2K, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.PS2M, 0x02) /* Device Wake */ // Device Wake
         }
 
         Method (_L0B, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            Notify (\_SB.PCI0.USB0, 0x02) // Device Wake
-            Notify (\_SB.PCI0.USB1, 0x02) // Device Wake
-            Notify (\_SB.PCI0.USB2, 0x02) // Device Wake
-            Notify (\_SB.PCI0.USB3, 0x02) // Device Wake
-            Notify (\_SB.PCI0.USB4, 0x02) // Device Wake
-            Notify (\_SB.PCI0.USB5, 0x02) // Device Wake
-            Notify (\_SB.PCI0.USB6, 0x02) // Device Wake
+            Notify (\_SB.PCI0.USB0, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.USB1, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.USB2, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.USB3, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.USB4, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.USB5, 0x02) /* Device Wake */ // Device Wake
+            Notify (\_SB.PCI0.USB6, 0x02) /* Device Wake */ // Device Wake
         }
 
         Method (_L1B, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            Notify (\_SB.PCI0.SBAZ, 0x02) // Device Wake
+            Notify (\_SB.PCI0.SBAZ, 0x02) /* Device Wake */ // Device Wake
         }
     }
 
@@ -2247,7 +2361,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
     {
         Device (\AWY)
         {
-            Name (_HID, "AWY0001")  // _HID: Hardware ID
+            Name (_HID, "AWY0001")  /* _HID: Hardware ID */  // _HID: Hardware ID
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (AWMD)
@@ -2265,7 +2379,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
         Device (PWRB)
         {
-            Name (_HID, EisaId ("PNP0C0C") /* Power Button Device */)  // _HID: Hardware ID
+            Name (_HID, EisaId ("PNP0C0C") /* Power Button Device */)  /* _HID: Hardware ID */  // _HID: Hardware ID
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 Return (0x0B)
@@ -2274,8 +2388,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
         Device (PCI0)
         {
-            Name (_HID, EisaId ("PNP0A03") /* PCI Bus */)  // _HID: Hardware ID
-            Name (_ADR, Zero)  // _ADR: Address
+            Name (_HID, EisaId ("PNP0A03") /* PCI Bus */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+            Name (_ADR, Zero)  /* _ADR: Address */  // _ADR: Address
             Scope (\)
             {
                 OperationRegion (SCPP, SystemIO, 0xB0, One)
@@ -2332,6 +2446,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     OSFL = 0x02
                 }
 
+                /* \OSFX */
+
                 OSTY = OSFX /* \OSFX */
                 If ((OSFX == Zero))
                 {
@@ -2351,8 +2467,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (SYSR)
             {
-                Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  // _HID: Hardware ID
-                Name (_UID, One)  // _UID: Unique ID
+                Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                Name (_UID, One)  /* _UID: Unique ID */  // _UID: Unique ID
                 Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                 {
                     IO (Decode16,
@@ -2455,7 +2571,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
             {
-                Name (BUF0, ResourceTemplate ()
+                Name (BUF0, ResourceTemplate ()  /* _MIN: Minimum Base Address */  /* _LEN: Length */
                 {
                     WordBusNumber (ResourceConsumer, MinNotFixed, MaxNotFixed, PosDecode,
                         0x0000,             // Granularity
@@ -2513,7 +2629,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 TCMM += 0x00100000
                 TCMM += SMEM /* \_SB_.SMEM */
                 TOMM = (0xFEC00000 - TCMM) /* \_SB_.PCI0._CRS.TCMM */
+                /* \_SB_.PCI0._CRS.TCMM */
+
                 Return (BUF0) /* \_SB_.PCI0._CRS.BUF0 */
+                        /* \_SB_.PCI0._CRS.BUF0 */
             }
 
             Name (PICM, Package (0x38)
@@ -3397,7 +3516,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 If (!PICF)
                 {
                     Return (PICM) /* \_SB_.PCI0.PICM */
+                                /* \_SB_.PCI0.PICM */
                 }
+                /* \_SB_.PCI0.APIC */
+
                 Else
                 {
                     Return (APIC) /* \_SB_.PCI0.APIC */
@@ -3406,7 +3528,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (SMB0)
             {
-                Name (_ADR, 0x00140000)  // _ADR: Address
+                Name (_ADR, 0x00140000)  /* _ADR: Address */  // _ADR: Address
                 OperationRegion (HETT, PCI_Config, 0x64, 0x02)
                 Scope (\)
                 {
@@ -3422,7 +3544,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (USB0)
             {
-                Name (_ADR, 0x00120000)  // _ADR: Address
+                Name (_ADR, 0x00120000)  /* _ADR: Address */  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
                     0x0B,
@@ -3443,7 +3565,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (USB1)
             {
-                Name (_ADR, 0x00120001)  // _ADR: Address
+                Name (_ADR, 0x00120001)  /* _ADR: Address */  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
                     0x0B,
@@ -3464,7 +3586,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (USB2)
             {
-                Name (_ADR, 0x00120002)  // _ADR: Address
+                Name (_ADR, 0x00120002)  /* _ADR: Address */  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
                     0x0B,
@@ -3485,7 +3607,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (USB3)
             {
-                Name (_ADR, 0x00130000)  // _ADR: Address
+                Name (_ADR, 0x00130000)  /* _ADR: Address */  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
                     0x0B,
@@ -3506,7 +3628,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (USB4)
             {
-                Name (_ADR, 0x00130001)  // _ADR: Address
+                Name (_ADR, 0x00130001)  /* _ADR: Address */  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
                     0x0B,
@@ -3527,7 +3649,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (USB5)
             {
-                Name (_ADR, 0x00130002)  // _ADR: Address
+                Name (_ADR, 0x00130002)  /* _ADR: Address */  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
                     0x0B,
@@ -3548,7 +3670,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (USB6)
             {
-                Name (_ADR, 0x00140005)  // _ADR: Address
+                Name (_ADR, 0x00140005)  /* _ADR: Address */  // _ADR: Address
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
                     0x0B,
@@ -3569,7 +3691,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (SBAZ)
             {
-                Name (_ADR, 0x00140002)  // _ADR: Address
+                Name (_ADR, 0x00140002)  /* _ADR: Address */  // _ADR: Address
                 OperationRegion (PCI, PCI_Config, Zero, 0x0100)
                 Field (PCI, AnyAcc, NoLock, Preserve)
                 {
@@ -3588,7 +3710,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (SATA)
             {
-                Name (_ADR, 0x00110000)  // _ADR: Address
+                Name (_ADR, 0x00110000)  /* _ADR: Address */  // _ADR: Address
                 OperationRegion (SACS, PCI_Config, Zero, 0x40)
                 Field (SACS, AnyAcc, NoLock, Preserve)
                 {
@@ -3604,10 +3726,11 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 })
                 Device (PRID)
                 {
-                    Name (_ADR, Zero)  // _ADR: Address
+                    Name (_ADR, Zero)  /* _ADR: Address */  // _ADR: Address
                     Method (_GTM, 0, NotSerialized)  // _GTM: Get Timing Mode
                     {
                         Return (SPTM) /* \_SB_.PCI0.SATA.SPTM */
+                                        /* \_SB_.PCI0.SATA.SPTM */
                     }
 
                     Method (_STM, 3, NotSerialized)  // _STM: Set Timing Mode
@@ -3675,11 +3798,12 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Method (_PSC, 0, NotSerialized)  // _PSC: Power State Current
                     {
                         Return (PRIS) /* \_SB_.PCI0.SATA.PRID.PRIS */
+                                        /* \_SB_.PCI0.SATA.PRID.PRIS */
                     }
 
                     Device (P_D0)
                     {
-                        Name (_ADR, Zero)  // _ADR: Address
+                        Name (_ADR, Zero)  /* _ADR: Address */  // _ADR: Address
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (STEN)
@@ -3740,12 +3864,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         Method (_PSC, 0, NotSerialized)  // _PSC: Power State Current
                         {
                             Return (S12P) /* \_SB_.PCI0.SATA.PRID.P_D0.S12P */
+                                                /* \_SB_.PCI0.SATA.PRID.P_D0.S12P */
                         }
                     }
 
                     Device (P_D1)
                     {
-                        Name (_ADR, One)  // _ADR: Address
+                        Name (_ADR, One)  /* _ADR: Address */  // _ADR: Address
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (STEN)
@@ -3806,16 +3931,18 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         Method (_PSC, 0, NotSerialized)  // _PSC: Power State Current
                         {
                             Return (S12P) /* \_SB_.PCI0.SATA.PRID.P_D1.S12P */
+                                                /* \_SB_.PCI0.SATA.PRID.P_D1.S12P */
                         }
                     }
                 }
 
                 Device (SECD)
                 {
-                    Name (_ADR, One)  // _ADR: Address
+                    Name (_ADR, One)  /* _ADR: Address */  // _ADR: Address
                     Method (_GTM, 0, NotSerialized)  // _GTM: Get Timing Mode
                     {
                         Return (SPTM) /* \_SB_.PCI0.SATA.SPTM */
+                                        /* \_SB_.PCI0.SATA.SPTM */
                     }
 
                     Method (_STM, 3, NotSerialized)  // _STM: Set Timing Mode
@@ -3882,11 +4009,12 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Method (_PSC, 0, NotSerialized)  // _PSC: Power State Current
                     {
                         Return (SECS) /* \_SB_.PCI0.SATA.SECD.SECS */
+                                        /* \_SB_.PCI0.SATA.SECD.SECS */
                     }
 
                     Device (S_D0)
                     {
-                        Name (_ADR, Zero)  // _ADR: Address
+                        Name (_ADR, Zero)  /* _ADR: Address */  // _ADR: Address
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (STEN)
@@ -3947,12 +4075,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         Method (_PSC, 0, NotSerialized)  // _PSC: Power State Current
                         {
                             Return (S12P) /* \_SB_.PCI0.SATA.SECD.S_D0.S12P */
+                                                /* \_SB_.PCI0.SATA.SECD.S_D0.S12P */
                         }
                     }
 
                     Device (S_D1)
                     {
-                        Name (_ADR, One)  // _ADR: Address
+                        Name (_ADR, One)  /* _ADR: Address */  // _ADR: Address
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (STEN)
@@ -4013,6 +4142,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         Method (_PSC, 0, NotSerialized)  // _PSC: Power State Current
                         {
                             Return (S12P) /* \_SB_.PCI0.SATA.SECD.S_D1.S12P */
+                                                /* \_SB_.PCI0.SATA.SECD.S_D1.S12P */
                         }
                     }
                 }
@@ -4020,14 +4150,14 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (LPC0)
             {
-                Name (_ADR, 0x00140003)  // _ADR: Address
+                Name (_ADR, 0x00140003)  /* _ADR: Address */  // _ADR: Address
                 Device (PMIO)
                 {
-                    Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  // _HID: Hardware ID
-                    Name (_UID, 0x03)  // _UID: Unique ID
+                    Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                    Name (_UID, 0x03)  /* _UID: Unique ID */  // _UID: Unique ID
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
-                        Name (BUF0, ResourceTemplate ()
+                        Name (BUF0, ResourceTemplate ()  /* _MIN: Minimum Base Address */  /* _LEN: Length */  /* _MAX: Maximum Base Address */
                         {
                             IO (Decode16,
                                 0x4100,             // Range Minimum
@@ -4150,11 +4280,16 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         CreateDWordField (BUF0, \_SB.PCI0.LPC0.PMIO._CRS._Y01._LEN, GALN)  // _LEN: Length
                         CreateDWordField (BUF0, \_SB.PCI0.LPC0.PMIO._CRS._Y01._MAX, GAMX)  // _MAX: Maximum Base Address
                         GALN = 0x1000
+                        /* \_SB_.PCI0.MMIO */
+
                         Local0 = MMIO /* \_SB_.PCI0.MMIO */
                         BARX = (Local0 & 0xFFFFFFF0)
                         GAMX = (Local0 + GALN) /* \_SB_.PCI0.LPC0.PMIO._CRS.GALN */
-                        GAMX -= One
+                        GAMX -=                             /* \_SB_.PCI0.LPC0.PMIO._CRS.GALN */
+
+One
                         Return (BUF0) /* \_SB_.PCI0.LPC0.PMIO._CRS.BUF0 */
+                                        /* \_SB_.PCI0.LPC0.PMIO._CRS.BUF0 */
                     }
                 }
 
@@ -4198,8 +4333,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (LNKA)
                 {
-                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
-                    Name (_UID, One)  // _UID: Unique ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                    Name (_UID, One)  /* _UID: Unique ID */  // _UID: Unique ID
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (PIRA)
@@ -4215,6 +4350,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Method (_PRS, 0, NotSerialized)  // _PRS: Possible Resource Settings
                     {
                         Return (IPRS) /* \_SB_.PCI0.LPC0.IPRS */
+                                        /* \_SB_.PCI0.LPC0.IPRS */
                     }
 
                     Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
@@ -4224,9 +4360,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                     Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
+                        /* \_SB_.PCI0.LPC0.IPRS */
+
                         Local0 = IPRS /* \_SB_.PCI0.LPC0.IPRS */
                         CreateWordField (Local0, One, IRQ0)
                         IRQ0 = (One << PIRA) /* \_SB_.PCI0.LPC0.PIRA */
+                        /* \_SB_.PCI0.LPC0.PIRA */
+
                         Return (Local0)
                     }
 
@@ -4241,8 +4381,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (LNKB)
                 {
-                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
-                    Name (_UID, 0x02)  // _UID: Unique ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                    Name (_UID, 0x02)  /* _UID: Unique ID */  // _UID: Unique ID
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (PIRB)
@@ -4258,6 +4398,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Method (_PRS, 0, NotSerialized)  // _PRS: Possible Resource Settings
                     {
                         Return (IPRS) /* \_SB_.PCI0.LPC0.IPRS */
+                                        /* \_SB_.PCI0.LPC0.IPRS */
                     }
 
                     Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
@@ -4267,9 +4408,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                     Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
+                        /* \_SB_.PCI0.LPC0.IPRS */
+
                         Local0 = IPRS /* \_SB_.PCI0.LPC0.IPRS */
                         CreateWordField (Local0, One, IRQ0)
                         IRQ0 = (One << PIRB) /* \_SB_.PCI0.LPC0.PIRB */
+                        /* \_SB_.PCI0.LPC0.PIRB */
+
                         Return (Local0)
                     }
 
@@ -4284,8 +4429,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (LNKC)
                 {
-                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
-                    Name (_UID, 0x03)  // _UID: Unique ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                    Name (_UID, 0x03)  /* _UID: Unique ID */  // _UID: Unique ID
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (PIRC)
@@ -4301,6 +4446,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Method (_PRS, 0, NotSerialized)  // _PRS: Possible Resource Settings
                     {
                         Return (IPRS) /* \_SB_.PCI0.LPC0.IPRS */
+                                        /* \_SB_.PCI0.LPC0.IPRS */
                     }
 
                     Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
@@ -4310,9 +4456,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                     Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
+                        /* \_SB_.PCI0.LPC0.IPRS */
+
                         Local0 = IPRS /* \_SB_.PCI0.LPC0.IPRS */
                         CreateWordField (Local0, One, IRQ0)
                         IRQ0 = (One << PIRC) /* \_SB_.PCI0.LPC0.PIRC */
+                        /* \_SB_.PCI0.LPC0.PIRC */
+
                         Return (Local0)
                     }
 
@@ -4327,8 +4477,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (LNKD)
                 {
-                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
-                    Name (_UID, 0x04)  // _UID: Unique ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                    Name (_UID, 0x04)  /* _UID: Unique ID */  // _UID: Unique ID
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (PIRD)
@@ -4344,6 +4494,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Method (_PRS, 0, NotSerialized)  // _PRS: Possible Resource Settings
                     {
                         Return (IPRS) /* \_SB_.PCI0.LPC0.IPRS */
+                                        /* \_SB_.PCI0.LPC0.IPRS */
                     }
 
                     Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
@@ -4353,9 +4504,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                     Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
+                        /* \_SB_.PCI0.LPC0.IPRS */
+
                         Local0 = IPRS /* \_SB_.PCI0.LPC0.IPRS */
                         CreateWordField (Local0, One, IRQ0)
                         IRQ0 = (One << PIRD) /* \_SB_.PCI0.LPC0.PIRD */
+                        /* \_SB_.PCI0.LPC0.PIRD */
+
                         Return (Local0)
                     }
 
@@ -4370,8 +4525,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (LNKE)
                 {
-                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
-                    Name (_UID, 0x05)  // _UID: Unique ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                    Name (_UID, 0x05)  /* _UID: Unique ID */  // _UID: Unique ID
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (PIRE)
@@ -4387,6 +4542,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Method (_PRS, 0, NotSerialized)  // _PRS: Possible Resource Settings
                     {
                         Return (IPRS) /* \_SB_.PCI0.LPC0.IPRS */
+                                        /* \_SB_.PCI0.LPC0.IPRS */
                     }
 
                     Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
@@ -4396,9 +4552,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                     Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
+                        /* \_SB_.PCI0.LPC0.IPRS */
+
                         Local0 = IPRS /* \_SB_.PCI0.LPC0.IPRS */
                         CreateWordField (Local0, One, IRQ0)
                         IRQ0 = (One << PIRE) /* \_SB_.PCI0.LPC0.PIRE */
+                        /* \_SB_.PCI0.LPC0.PIRE */
+
                         Return (Local0)
                     }
 
@@ -4413,8 +4573,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (LNKF)
                 {
-                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
-                    Name (_UID, 0x06)  // _UID: Unique ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                    Name (_UID, 0x06)  /* _UID: Unique ID */  // _UID: Unique ID
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (PIRF)
@@ -4430,6 +4590,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Method (_PRS, 0, NotSerialized)  // _PRS: Possible Resource Settings
                     {
                         Return (IPRS) /* \_SB_.PCI0.LPC0.IPRS */
+                                        /* \_SB_.PCI0.LPC0.IPRS */
                     }
 
                     Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
@@ -4439,9 +4600,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                     Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
+                        /* \_SB_.PCI0.LPC0.IPRS */
+
                         Local0 = IPRS /* \_SB_.PCI0.LPC0.IPRS */
                         CreateWordField (Local0, One, IRQ0)
                         IRQ0 = (One << PIRF) /* \_SB_.PCI0.LPC0.PIRF */
+                        /* \_SB_.PCI0.LPC0.PIRF */
+
                         Return (Local0)
                     }
 
@@ -4456,8 +4621,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (LNK0)
                 {
-                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
-                    Name (_UID, 0x07)  // _UID: Unique ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                    Name (_UID, 0x07)  /* _UID: Unique ID */  // _UID: Unique ID
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (PIR0)
@@ -4473,6 +4638,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Method (_PRS, 0, NotSerialized)  // _PRS: Possible Resource Settings
                     {
                         Return (IPRS) /* \_SB_.PCI0.LPC0.IPRS */
+                                        /* \_SB_.PCI0.LPC0.IPRS */
                     }
 
                     Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
@@ -4482,9 +4648,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                     Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
+                        /* \_SB_.PCI0.LPC0.IPRS */
+
                         Local0 = IPRS /* \_SB_.PCI0.LPC0.IPRS */
                         CreateWordField (Local0, One, IRQ0)
                         IRQ0 = (One << PIR0) /* \_SB_.PCI0.LPC0.PIR0 */
+                        /* \_SB_.PCI0.LPC0.PIR0 */
+
                         Return (Local0)
                     }
 
@@ -4499,8 +4669,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (LNK1)
                 {
-                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
-                    Name (_UID, 0x08)  // _UID: Unique ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                    Name (_UID, 0x08)  /* _UID: Unique ID */  // _UID: Unique ID
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If (PIR1)
@@ -4516,6 +4686,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Method (_PRS, 0, NotSerialized)  // _PRS: Possible Resource Settings
                     {
                         Return (IPRS) /* \_SB_.PCI0.LPC0.IPRS */
+                                        /* \_SB_.PCI0.LPC0.IPRS */
                     }
 
                     Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
@@ -4525,9 +4696,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                     Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
+                        /* \_SB_.PCI0.LPC0.IPRS */
+
                         Local0 = IPRS /* \_SB_.PCI0.LPC0.IPRS */
                         CreateWordField (Local0, One, IRQ0)
                         IRQ0 = (One << PIR1) /* \_SB_.PCI0.LPC0.PIR1 */
+                        /* \_SB_.PCI0.LPC0.PIR1 */
+
                         Return (Local0)
                     }
 
@@ -4542,7 +4717,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (PIC)
                 {
-                    Name (_HID, EisaId ("PNP0000") /* 8259-compatible Programmable Interrupt Controller */)  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0000") /* 8259-compatible Programmable Interrupt Controller */)  /* _HID: Hardware ID */  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -4564,7 +4739,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (DMA1)
                 {
-                    Name (_HID, EisaId ("PNP0200") /* PC-class DMA Controller */)  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0200") /* PC-class DMA Controller */)  /* _HID: Hardware ID */  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         DMA (Compatibility, BusMaster, Transfer8, )
@@ -4598,7 +4773,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (TMR)
                 {
-                    Name (_HID, EisaId ("PNP0100") /* PC-class System Timer */)  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0100") /* PC-class System Timer */)  /* _HID: Hardware ID */  // _HID: Hardware ID
                     Name (ATT5, ResourceTemplate ()
                     {
                         IO (Decode16,
@@ -4626,12 +4801,17 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             If (HPTF)
                             {
                                 Return (ATT6) /* \_SB_.PCI0.LPC0.TMR_.ATT6 */
+                                                        /* \_SB_.PCI0.LPC0.TMR_.ATT6 */
                             }
+                            /* \_SB_.PCI0.LPC0.TMR_.ATT5 */
+
                             Else
                             {
                                 Return (ATT5) /* \_SB_.PCI0.LPC0.TMR_.ATT5 */
                             }
                         }
+                        /* \_SB_.PCI0.LPC0.TMR_.ATT5 */
+
                         Else
                         {
                             Return (ATT5) /* \_SB_.PCI0.LPC0.TMR_.ATT5 */
@@ -4641,7 +4821,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (HPET)
                 {
-                    Name (_HID, EisaId ("PNP0103") /* HPET System Timer */)  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0103") /* HPET System Timer */)  /* _HID: Hardware ID */  // _HID: Hardware ID
                     Name (ATT3, ResourceTemplate ()
                     {
                         IRQNoFlags ()
@@ -4683,12 +4863,17 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             If (HPTF)
                             {
                                 Return (ATT3) /* \_SB_.PCI0.LPC0.HPET.ATT3 */
+                                                        /* \_SB_.PCI0.LPC0.HPET.ATT3 */
                             }
+                            /* \_SB_.PCI0.LPC0.HPET.ATT4 */
+
                             Else
                             {
                                 Return (ATT4) /* \_SB_.PCI0.LPC0.HPET.ATT4 */
                             }
                         }
+                        /* \_SB_.PCI0.LPC0.HPET.ATT4 */
+
                         Else
                         {
                             Return (ATT4) /* \_SB_.PCI0.LPC0.HPET.ATT4 */
@@ -4698,7 +4883,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (RTC)
                 {
-                    Name (_HID, EisaId ("PNP0B00") /* AT Real-Time Clock */)  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0B00") /* AT Real-Time Clock */)  /* _HID: Hardware ID */  // _HID: Hardware ID
                     Name (ATT0, ResourceTemplate ()
                     {
                         IO (Decode16,
@@ -4746,17 +4931,23 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             If (HPTF)
                             {
                                 Return (ATT1) /* \_SB_.PCI0.LPC0.RTC_.ATT1 */
+                                                        /* \_SB_.PCI0.LPC0.RTC_.ATT1 */
                             }
+                            /* \_SB_.PCI0.LPC0.RTC_.ATT0 */
+
                             Else
                             {
                                 Return (ATT0) /* \_SB_.PCI0.LPC0.RTC_.ATT0 */
                             }
                         }
+                        /* \_SB_.PCI0.LPC0.RTC_.ATT0 */
+
                         Else
                         {
                             If ((AMAC == One))
                             {
                                 Return (ATT2) /* \_SB_.PCI0.LPC0.RTC_.ATT2 */
+                                                        /* \_SB_.PCI0.LPC0.RTC_.ATT2 */
                             }
 
                             Return (ATT0) /* \_SB_.PCI0.LPC0.RTC_.ATT0 */
@@ -4766,7 +4957,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (SPKR)
                 {
-                    Name (_HID, EisaId ("PNP0800") /* Microsoft Sound System Compatible Device */)  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0800") /* Microsoft Sound System Compatible Device */)  /* _HID: Hardware ID */  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -4780,7 +4971,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (COPR)
                 {
-                    Name (_HID, EisaId ("PNP0C04") /* x87-compatible Floating Point Processing Unit */)  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0C04") /* x87-compatible Floating Point Processing Unit */)  /* _HID: Hardware ID */  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -4797,7 +4988,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (P2P)
             {
-                Name (_ADR, 0x00140004)  // _ADR: Address
+                Name (_ADR, 0x00140004)  /* _ADR: Address */  // _ADR: Address
                 Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
                 {
                     If ((OSFL == 0x02))
@@ -4892,7 +5083,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.P2P_.PICM */
+                                        /* \_SB_.PCI0.P2P_.PICM */
                     }
+                    /* \_SB_.PCI0.P2P_.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.P2P_.APIC */
@@ -4902,7 +5096,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (IDE)
             {
-                Name (_ADR, 0x00140001)  // _ADR: Address
+                Name (_ADR, 0x00140001)  /* _ADR: Address */  // _ADR: Address
                 Name (UDMT, Package (0x08)
                 {
                     0x78,
@@ -4996,6 +5190,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If ((PICX & One))
                     {
                         Return (BUF) /* \_SB_.PCI0.IDE_.GTM_.BUF_ */
+                                        /* \_SB_.PCI0.IDE_.GTM_.BUF_ */
                     }
 
                     PIO0 = GETT (PIT0)
@@ -5022,6 +5217,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                     FLAG |= 0x1A
                     Return (BUF) /* \_SB_.PCI0.IDE_.GTM_.BUF_ */
+                                /* \_SB_.PCI0.IDE_.GTM_.BUF_ */
                 }
 
                 Method (STM, 3, Serialized)
@@ -5076,6 +5272,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
 
                     Return (BUF) /* \_SB_.PCI0.IDE_.STM_.BUF_ */
+                                /* \_SB_.PCI0.IDE_.STM_.BUF_ */
                 }
 
                 Method (GTF, 2, Serialized)
@@ -5088,6 +5285,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If ((Arg0 == 0xA0))
                     {
                         Local0 = (PIMX & 0x0F)
+                        /* \_SB_.PCI0.IDE_.GTF_.MDT0 */
+
                         Local1 = MDT0 /* \_SB_.PCI0.IDE_.GTF_.MDT0 */
                         Local2 = (UDCX & One)
                         Local3 = (UDMX & 0x0F)
@@ -5095,6 +5294,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Else
                     {
                         Local0 = (PIMX >> 0x04)
+                        /* \_SB_.PCI0.IDE_.GTF_.MDT1 */
+
                         Local1 = MDT1 /* \_SB_.PCI0.IDE_.GTF_.MDT1 */
                         Local2 = (UDCX & 0x02)
                         Local3 = (UDMX >> 0x04)
@@ -5126,11 +5327,12 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
 
                     Return (BUF) /* \_SB_.PCI0.IDE_.GTF_.BUF_ */
+                                /* \_SB_.PCI0.IDE_.GTF_.BUF_ */
                 }
 
                 Device (PRID)
                 {
-                    Name (_ADR, Zero)  // _ADR: Address
+                    Name (_ADR, Zero)  /* _ADR: Address */  // _ADR: Address
                     Method (_GTM, 0, Serialized)  // _GTM: Get Timing Mode
                     {
                         Name (BUF, Buffer (0x07)
@@ -5142,10 +5344,20 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         CreateByteField (BUF, 0x04, VPIC)
                         CreateByteField (BUF, 0x05, VUDC)
                         CreateByteField (BUF, 0x06, VUDM)
+                        /* \_SB_.PCI0.IDE_.PPIT */
+
                         VPIT = PPIT /* \_SB_.PCI0.IDE_.PPIT */
+                        /* \_SB_.PCI0.IDE_.PMDT */
+
                         VMDT = PMDT /* \_SB_.PCI0.IDE_.PMDT */
+                        /* \_SB_.PCI0.IDE_.PPIC */
+
                         VPIC = PPIC /* \_SB_.PCI0.IDE_.PPIC */
+                        /* \_SB_.PCI0.IDE_.PUDC */
+
                         VUDC = PUDC /* \_SB_.PCI0.IDE_.PUDC */
+                        /* \_SB_.PCI0.IDE_.PUDM */
+
                         VUDM = PUDM /* \_SB_.PCI0.IDE_.PUDM */
                         Return (GTM (BUF))
                     }
@@ -5162,16 +5374,26 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         CreateByteField (BUF, 0x05, VUDC)
                         CreateByteField (BUF, 0x06, VUDM)
                         BUF = STM (Arg0, Arg1, Arg2)
+                        /* \_SB_.PCI0.IDE_.PRID._STM.VPIT */
+
                         PPIT = VPIT /* \_SB_.PCI0.IDE_.PRID._STM.VPIT */
+                        /* \_SB_.PCI0.IDE_.PRID._STM.VMDT */
+
                         PMDT = VMDT /* \_SB_.PCI0.IDE_.PRID._STM.VMDT */
+                        /* \_SB_.PCI0.IDE_.PRID._STM.VPIM */
+
                         PPIM = VPIM /* \_SB_.PCI0.IDE_.PRID._STM.VPIM */
+                        /* \_SB_.PCI0.IDE_.PRID._STM.VUDC */
+
                         PUDC = VUDC /* \_SB_.PCI0.IDE_.PRID._STM.VUDC */
+                        /* \_SB_.PCI0.IDE_.PRID._STM.VUDM */
+
                         PUDM = VUDM /* \_SB_.PCI0.IDE_.PRID._STM.VUDM */
                     }
 
                     Device (P_D0)
                     {
-                        Name (_ADR, Zero)  // _ADR: Address
+                        Name (_ADR, Zero)  /* _ADR: Address */  // _ADR: Address
                         Method (_GTF, 0, Serialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
@@ -5182,9 +5404,17 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             CreateByteField (BUF, 0x02, VPIM)
                             CreateByteField (BUF, 0x03, VUDC)
                             CreateByteField (BUF, 0x04, VUDM)
+                            /* \_SB_.PCI0.IDE_.PMDT */
+
                             VMDT = PMDT /* \_SB_.PCI0.IDE_.PMDT */
+                            /* \_SB_.PCI0.IDE_.PPIM */
+
                             VPIM = PPIM /* \_SB_.PCI0.IDE_.PPIM */
+                            /* \_SB_.PCI0.IDE_.PUDC */
+
                             VUDC = PUDC /* \_SB_.PCI0.IDE_.PUDC */
+                            /* \_SB_.PCI0.IDE_.PUDM */
+
                             VUDM = PUDM /* \_SB_.PCI0.IDE_.PUDM */
                             Return (GTF (0xA0, BUF))
                         }
@@ -5192,7 +5422,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                     Device (P_D1)
                     {
-                        Name (_ADR, One)  // _ADR: Address
+                        Name (_ADR, One)  /* _ADR: Address */  // _ADR: Address
                         Method (_GTF, 0, Serialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
@@ -5203,9 +5433,17 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             CreateByteField (BUF, 0x02, VPIM)
                             CreateByteField (BUF, 0x03, VUDC)
                             CreateByteField (BUF, 0x04, VUDM)
+                            /* \_SB_.PCI0.IDE_.PMDT */
+
                             VMDT = PMDT /* \_SB_.PCI0.IDE_.PMDT */
+                            /* \_SB_.PCI0.IDE_.PPIM */
+
                             VPIM = PPIM /* \_SB_.PCI0.IDE_.PPIM */
+                            /* \_SB_.PCI0.IDE_.PUDC */
+
                             VUDC = PUDC /* \_SB_.PCI0.IDE_.PUDC */
+                            /* \_SB_.PCI0.IDE_.PUDM */
+
                             VUDM = PUDM /* \_SB_.PCI0.IDE_.PUDM */
                             Return (GTF (0xB0, BUF))
                         }
@@ -5214,7 +5452,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Device (SECD)
                 {
-                    Name (_ADR, One)  // _ADR: Address
+                    Name (_ADR, One)  /* _ADR: Address */  // _ADR: Address
                     Method (_GTM, 0, Serialized)  // _GTM: Get Timing Mode
                     {
                         Name (BUF, Buffer (0x07)
@@ -5226,10 +5464,20 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         CreateByteField (BUF, 0x04, VPIC)
                         CreateByteField (BUF, 0x05, VUDC)
                         CreateByteField (BUF, 0x06, VUDM)
+                        /* \_SB_.PCI0.IDE_.SPIT */
+
                         VPIT = SPIT /* \_SB_.PCI0.IDE_.SPIT */
+                        /* \_SB_.PCI0.IDE_.SMDT */
+
                         VMDT = SMDT /* \_SB_.PCI0.IDE_.SMDT */
+                        /* \_SB_.PCI0.IDE_.SPIC */
+
                         VPIC = SPIC /* \_SB_.PCI0.IDE_.SPIC */
+                        /* \_SB_.PCI0.IDE_.SUDC */
+
                         VUDC = SUDC /* \_SB_.PCI0.IDE_.SUDC */
+                        /* \_SB_.PCI0.IDE_.SUDM */
+
                         VUDM = SUDM /* \_SB_.PCI0.IDE_.SUDM */
                         Return (GTM (BUF))
                     }
@@ -5246,16 +5494,26 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         CreateByteField (BUF, 0x05, VUDC)
                         CreateByteField (BUF, 0x06, VUDM)
                         BUF = STM (Arg0, Arg1, Arg2)
+                        /* \_SB_.PCI0.IDE_.SECD._STM.VPIT */
+
                         SPIT = VPIT /* \_SB_.PCI0.IDE_.SECD._STM.VPIT */
+                        /* \_SB_.PCI0.IDE_.SECD._STM.VMDT */
+
                         SMDT = VMDT /* \_SB_.PCI0.IDE_.SECD._STM.VMDT */
+                        /* \_SB_.PCI0.IDE_.SECD._STM.VPIM */
+
                         SPIM = VPIM /* \_SB_.PCI0.IDE_.SECD._STM.VPIM */
+                        /* \_SB_.PCI0.IDE_.SECD._STM.VUDC */
+
                         SUDC = VUDC /* \_SB_.PCI0.IDE_.SECD._STM.VUDC */
+                        /* \_SB_.PCI0.IDE_.SECD._STM.VUDM */
+
                         SUDM = VUDM /* \_SB_.PCI0.IDE_.SECD._STM.VUDM */
                     }
 
                     Device (S_D0)
                     {
-                        Name (_ADR, Zero)  // _ADR: Address
+                        Name (_ADR, Zero)  /* _ADR: Address */  // _ADR: Address
                         Method (_GTF, 0, Serialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
@@ -5266,9 +5524,17 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             CreateByteField (BUF, 0x02, VPIM)
                             CreateByteField (BUF, 0x03, VUDC)
                             CreateByteField (BUF, 0x04, VUDM)
+                            /* \_SB_.PCI0.IDE_.SMDT */
+
                             VMDT = SMDT /* \_SB_.PCI0.IDE_.SMDT */
+                            /* \_SB_.PCI0.IDE_.SPIM */
+
                             VPIM = SPIM /* \_SB_.PCI0.IDE_.SPIM */
+                            /* \_SB_.PCI0.IDE_.SUDC */
+
                             VUDC = SUDC /* \_SB_.PCI0.IDE_.SUDC */
+                            /* \_SB_.PCI0.IDE_.SUDM */
+
                             VUDM = SUDM /* \_SB_.PCI0.IDE_.SUDM */
                             Return (GTF (0xA0, BUF))
                         }
@@ -5276,7 +5542,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                     Device (S_D1)
                     {
-                        Name (_ADR, One)  // _ADR: Address
+                        Name (_ADR, One)  /* _ADR: Address */  // _ADR: Address
                         Method (_GTF, 0, Serialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
@@ -5287,9 +5553,17 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                             CreateByteField (BUF, 0x02, VPIM)
                             CreateByteField (BUF, 0x03, VUDC)
                             CreateByteField (BUF, 0x04, VUDM)
+                            /* \_SB_.PCI0.IDE_.SMDT */
+
                             VMDT = SMDT /* \_SB_.PCI0.IDE_.SMDT */
+                            /* \_SB_.PCI0.IDE_.SPIM */
+
                             VPIM = SPIM /* \_SB_.PCI0.IDE_.SPIM */
+                            /* \_SB_.PCI0.IDE_.SUDC */
+
                             VUDC = SUDC /* \_SB_.PCI0.IDE_.SUDC */
+                            /* \_SB_.PCI0.IDE_.SUDM */
+
                             VUDM = SUDM /* \_SB_.PCI0.IDE_.SUDM */
                             Return (GTF (0xB0, BUF))
                         }
@@ -5299,7 +5573,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PCE2)
             {
-                Name (_ADR, 0x00020000)  // _ADR: Address
+                Name (_ADR, 0x00020000)  /* _ADR: Address */  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -5382,7 +5656,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.PCE2.PICM */
+                                        /* \_SB_.PCI0.PCE2.PICM */
                     }
+                    /* \_SB_.PCI0.PCE2.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.PCE2.APIC */
@@ -5392,7 +5669,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PCE3)
             {
-                Name (_ADR, 0x00030000)  // _ADR: Address
+                Name (_ADR, 0x00030000)  /* _ADR: Address */  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -5475,7 +5752,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.PCE3.PICM */
+                                        /* \_SB_.PCI0.PCE3.PICM */
                     }
+                    /* \_SB_.PCI0.PCE3.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.PCE3.APIC */
@@ -5485,7 +5765,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PCE4)
             {
-                Name (_ADR, 0x00040000)  // _ADR: Address
+                Name (_ADR, 0x00040000)  /* _ADR: Address */  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -5568,7 +5848,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.PCE4.PICM */
+                                        /* \_SB_.PCI0.PCE4.PICM */
                     }
+                    /* \_SB_.PCI0.PCE4.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.PCE4.APIC */
@@ -5578,7 +5861,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PCE5)
             {
-                Name (_ADR, 0x00050000)  // _ADR: Address
+                Name (_ADR, 0x00050000)  /* _ADR: Address */  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -5661,7 +5944,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.PCE5.PICM */
+                                        /* \_SB_.PCI0.PCE5.PICM */
                     }
+                    /* \_SB_.PCI0.PCE5.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.PCE5.APIC */
@@ -5671,7 +5957,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PCE6)
             {
-                Name (_ADR, 0x00060000)  // _ADR: Address
+                Name (_ADR, 0x00060000)  /* _ADR: Address */  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -5754,7 +6040,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.PCE6.PICM */
+                                        /* \_SB_.PCI0.PCE6.PICM */
                     }
+                    /* \_SB_.PCI0.PCE6.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.PCE6.APIC */
@@ -5764,7 +6053,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PCE7)
             {
-                Name (_ADR, 0x00070000)  // _ADR: Address
+                Name (_ADR, 0x00070000)  /* _ADR: Address */  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -5847,7 +6136,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.PCE7.PICM */
+                                        /* \_SB_.PCI0.PCE7.PICM */
                     }
+                    /* \_SB_.PCI0.PCE7.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.PCE7.APIC */
@@ -5857,7 +6149,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PCE9)
             {
-                Name (_ADR, 0x00090000)  // _ADR: Address
+                Name (_ADR, 0x00090000)  /* _ADR: Address */  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -5940,7 +6232,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.PCE9.PICM */
+                                        /* \_SB_.PCI0.PCE9.PICM */
                     }
+                    /* \_SB_.PCI0.PCE9.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.PCE9.APIC */
@@ -5950,7 +6245,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PCEA)
             {
-                Name (_ADR, 0x000A0000)  // _ADR: Address
+                Name (_ADR, 0x000A0000)  /* _ADR: Address */  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -6033,7 +6328,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.PCEA.PICM */
+                                        /* \_SB_.PCI0.PCEA.PICM */
                     }
+                    /* \_SB_.PCI0.PCEA.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.PCEA.APIC */
@@ -6043,7 +6341,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PCEB)
             {
-                Name (_ADR, 0x000B0000)  // _ADR: Address
+                Name (_ADR, 0x000B0000)  /* _ADR: Address */  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -6126,7 +6424,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.PCEB.PICM */
+                                        /* \_SB_.PCI0.PCEB.PICM */
                     }
+                    /* \_SB_.PCI0.PCEB.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.PCEB.APIC */
@@ -6136,7 +6437,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PCEC)
             {
-                Name (_ADR, 0x000C0000)  // _ADR: Address
+                Name (_ADR, 0x000C0000)  /* _ADR: Address */  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -6219,7 +6520,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.PCEC.PICM */
+                                        /* \_SB_.PCI0.PCEC.PICM */
                     }
+                    /* \_SB_.PCI0.PCEC.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.PCEC.APIC */
@@ -6310,6 +6614,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     INDP = Arg0
                     Return (DATP) /* \DATP */
+                                /* \DATP */
                 }
 
                 Method (SSRG, 2, NotSerialized)
@@ -6321,7 +6626,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (FDC0)
             {
-                Name (_HID, EisaId ("PNP0700"))  // _HID: Hardware ID
+                Name (_HID, EisaId ("PNP0700"))  /* _HID: Hardware ID */  // _HID: Hardware ID
                 Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     ENFG ()
@@ -6355,7 +6660,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
-                    Name (BUF0, ResourceTemplate ()
+                    Name (BUF0, ResourceTemplate ()  /* _MIN: Minimum Base Address */  /* _MAX: Maximum Base Address */
                     {
                         IO (Decode16,
                             0x03F0,             // Range Minimum
@@ -6381,6 +6686,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     ENFG ()
                     EXFG ()
                     Return (BUF0) /* \_SB_.PCI0.FDC0._CRS.BUF0 */
+                                /* \_SB_.PCI0.FDC0._CRS.BUF0 */
                 }
 
                 Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -6424,8 +6730,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (UAR1)
             {
-                Name (_HID, EisaId ("PNP0501") /* 16550A-compatible COM Serial Port */)  // _HID: Hardware ID
-                Name (_UID, One)  // _UID: Unique ID
+                Name (_HID, EisaId ("PNP0501") /* 16550A-compatible COM Serial Port */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                Name (_UID, One)  /* _UID: Unique ID */  // _UID: Unique ID
                 Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     ENFG ()
@@ -6460,7 +6766,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
-                    Name (BUF1, ResourceTemplate ()
+                    Name (BUF1, ResourceTemplate ()  /* _MIN: Minimum Base Address */  /* _MAX: Maximum Base Address */  /* _INT: Interrupts */
                     {
                         IO (Decode16,
                             0x0000,             // Range Minimum
@@ -6478,14 +6784,25 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     CreateWordField (BUF1, \_SB.PCI0.UAR1._CRS._Y04._INT, IRQW)  // _INT: Interrupts
                     ENFG ()
                     LDN = One
+                    /* \IOAL */
+
                     IOLO = IOAL /* \IOAL */
+                    /* \IOAL */
+
                     IORL = IOAL /* \IOAL */
+                    /* \IOAH */
+
                     IOHI = IOAH /* \IOAH */
+                    /* \IOAH */
+
                     IORH = IOAH /* \IOAH */
                     Local0 = One
                     IRQW = (Local0 << INTR) /* \INTR */
+                    /* \INTR */
+
                     EXFG ()
                     Return (BUF1) /* \_SB_.PCI0.UAR1._CRS.BUF1 */
+                                /* \_SB_.PCI0.UAR1._CRS.BUF1 */
                 }
 
                 Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -6545,7 +6862,11 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     ENFG ()
                     LDN = One
                     ACTR = One
+                    /* \_SB_.PCI0.UAR1._SRS.IOLO */
+
                     IOAL = IOLO /* \_SB_.PCI0.UAR1._SRS.IOLO */
+                    /* \_SB_.PCI0.UAR1._SRS.IOHI */
+
                     IOAH = IOHI /* \_SB_.PCI0.UAR1._SRS.IOHI */
                     FindSetRightBit (IRQW, Local0)
                     INTR = (Local0 - One)
@@ -6556,7 +6877,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (LPT1)
             {
-                Name (_HID, EisaId ("PNP0400") /* Standard LPT Parallel Port */)  // _HID: Hardware ID
+                Name (_HID, EisaId ("PNP0400") /* Standard LPT Parallel Port */)  /* _HID: Hardware ID */  // _HID: Hardware ID
                 Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     ENFG ()
@@ -6598,7 +6919,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
-                    Name (BUF5, ResourceTemplate ()
+                    Name (BUF5, ResourceTemplate ()  /* _MIN: Minimum Base Address */  /* _MAX: Maximum Base Address */  /* _LEN: Length */  /* _INT: Interrupts */
                     {
                         IO (Decode16,
                             0x0000,             // Range Minimum
@@ -6617,9 +6938,17 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     CreateWordField (BUF5, \_SB.PCI0.LPT1._CRS._Y06._INT, IRQW)  // _INT: Interrupts
                     ENFG ()
                     LDN = 0x03
+                    /* \IOAL */
+
                     IOLO = IOAL /* \IOAL */
+                    /* \_SB_.PCI0.LPT1._CRS.IOLO */
+
                     IORL = IOLO /* \_SB_.PCI0.LPT1._CRS.IOLO */
+                    /* \IOAH */
+
                     IOHI = IOAH /* \IOAH */
+                    /* \_SB_.PCI0.LPT1._CRS.IOHI */
+
                     IORH = IOHI /* \_SB_.PCI0.LPT1._CRS.IOHI */
                     If ((IOLO == 0xBC))
                     {
@@ -6631,10 +6960,13 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
 
                     Local0 = One
+                    /* \INTR */
+
                     Local5 = INTR /* \INTR */
                     IRQW = (Local0 << Local5)
                     EXFG ()
                     Return (BUF5) /* \_SB_.PCI0.LPT1._CRS.BUF5 */
+                                /* \_SB_.PCI0.LPT1._CRS.BUF5 */
                 }
 
                 Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -6685,7 +7017,11 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     ENFG ()
                     LDN = 0x03
                     ACTR = One
+                    /* \_SB_.PCI0.LPT1._SRS.IOLO */
+
                     IOAL = IOLO /* \_SB_.PCI0.LPT1._SRS.IOLO */
+                    /* \_SB_.PCI0.LPT1._SRS.IOHI */
+
                     IOAH = IOHI /* \_SB_.PCI0.LPT1._SRS.IOHI */
                     FindSetLeftBit (IRQW, Local0)
                     Local0 -= One
@@ -6697,7 +7033,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (ECP1)
             {
-                Name (_HID, EisaId ("PNP0401") /* ECP Parallel Port */)  // _HID: Hardware ID
+                Name (_HID, EisaId ("PNP0401") /* ECP Parallel Port */)  /* _HID: Hardware ID */  // _HID: Hardware ID
                 Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     ENFG ()
@@ -6740,7 +7076,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
-                    Name (BUF6, ResourceTemplate ()
+                    Name (BUF6, ResourceTemplate ()  /* _MIN: Minimum Base Address */  /* _MAX: Maximum Base Address */  /* _LEN: Length */  /* _MIN: Minimum Base Address */  /* _MAX: Maximum Base Address */  /* _INT: Interrupts */  /* _DMA: Direct Memory Access */
                     {
                         IO (Decode16,
                             0x0000,             // Range Minimum
@@ -6772,16 +7108,28 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y0A._DMA, DMAC)  // _DMA: Direct Memory Access
                     ENFG ()
                     LDN = 0x03
+                    /* \IOAL */
+
                     Local2 = IOAL /* \IOAL */
                     IOLO = Local2
+                    /* \IOAH */
+
                     Local3 = IOAH /* \IOAH */
                     IOHI = Local3
                     Local3 |= 0x04
                     IOEH = Local3
                     IOMH = Local3
+                    /* \_SB_.PCI0.ECP1._CRS.IOLO */
+
                     IORL = IOLO /* \_SB_.PCI0.ECP1._CRS.IOLO */
+                    /* \_SB_.PCI0.ECP1._CRS.IOLO */
+
                     IOEL = IOLO /* \_SB_.PCI0.ECP1._CRS.IOLO */
+                    /* \_SB_.PCI0.ECP1._CRS.IOLO */
+
                     IOML = IOLO /* \_SB_.PCI0.ECP1._CRS.IOLO */
+                    /* \_SB_.PCI0.ECP1._CRS.IOHI */
+
                     IORH = IOHI /* \_SB_.PCI0.ECP1._CRS.IOHI */
                     If ((IOLO == 0xBC))
                     {
@@ -6793,13 +7141,18 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
 
                     Local0 = One
+                    /* \INTR */
+
                     Local5 = INTR /* \INTR */
                     IRQW = (Local0 << Local5)
                     Local0 = One
+                    /* \DMCH */
+
                     Local5 = DMCH /* \DMCH */
                     DMAC = (Local0 << Local5)
                     EXFG ()
                     Return (BUF6) /* \_SB_.PCI0.ECP1._CRS.BUF6 */
+                                /* \_SB_.PCI0.ECP1._CRS.BUF6 */
                 }
 
                 Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -6873,12 +7226,18 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     ENFG ()
                     LDN = 0x03
                     ACTR = One
+                    /* \_SB_.PCI0.ECP1._SRS.IOLO */
+
                     IOAL = IOLO /* \_SB_.PCI0.ECP1._SRS.IOLO */
+                    /* \_SB_.PCI0.ECP1._SRS.IOHI */
+
                     IOAH = IOHI /* \_SB_.PCI0.ECP1._SRS.IOHI */
                     FindSetLeftBit (IRQW, Local0)
                     Local0 -= One
                     INTR = Local0
                     FindSetLeftBit (DMAC, Local1)
+                    /* \DMCH */
+
                     Local0 = DMCH /* \DMCH */
                     DMCH = (Local1 - One)
                     SLDM (Local0, DMCH)
@@ -6897,7 +7256,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PS2M)
             {
-                Name (_HID, EisaId ("PNP0F13") /* PS/2 Mouse */)  // _HID: Hardware ID
+                Name (_HID, EisaId ("PNP0F13") /* PS/2 Mouse */)  /* _HID: Hardware ID */  // _HID: Hardware ID
                 Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     If ((PS2F == Zero))
@@ -6939,17 +7298,23 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         If ((OSFL == 0x02))
                         {
                             Return (BUF1) /* \_SB_.PCI0.PS2M._CRS.BUF1 */
+                                                /* \_SB_.PCI0.PS2M._CRS.BUF1 */
                         }
 
                         If ((OSFL == One))
                         {
                             Return (BUF1) /* \_SB_.PCI0.PS2M._CRS.BUF1 */
+                                                /* \_SB_.PCI0.PS2M._CRS.BUF1 */
                         }
+                        /* \_SB_.PCI0.PS2M._CRS.BUF2 */
+
                         Else
                         {
                             Return (BUF2) /* \_SB_.PCI0.PS2M._CRS.BUF2 */
                         }
                     }
+                    /* \_SB_.PCI0.PS2M._CRS.BUF1 */
+
                     Else
                     {
                         Return (BUF1) /* \_SB_.PCI0.PS2M._CRS.BUF1 */
@@ -6959,7 +7324,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PS2K)
             {
-                Name (_HID, EisaId ("PNP0303") /* IBM Enhanced Keyboard (101/102-key, PS/2 Mouse) */)  // _HID: Hardware ID
+                Name (_HID, EisaId ("PNP0303") /* IBM Enhanced Keyboard (101/102-key, PS/2 Mouse) */)  /* _HID: Hardware ID */  // _HID: Hardware ID
                 Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     If ((KBDI == One))
@@ -6993,8 +7358,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (PSMR)
             {
-                Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  // _HID: Hardware ID
-                Name (_UID, 0x03)  // _UID: Unique ID
+                Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+                Name (_UID, 0x03)  /* _UID: Unique ID */  // _UID: Unique ID
                 Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     If ((KBDI == Zero))
@@ -7066,7 +7431,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
             Device (AGP)
             {
-                Name (_ADR, 0x00010000)  // _ADR: Address
+                Name (_ADR, 0x00010000)  /* _ADR: Address */  // _ADR: Address
                 Name (PICM, Package (0x06)
                 {
                     Package (0x04)
@@ -7172,7 +7537,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     If (!PICF)
                     {
                         Return (PICM) /* \_SB_.PCI0.AGP_.PICM */
+                                        /* \_SB_.PCI0.AGP_.PICM */
                     }
+                    /* \_SB_.PCI0.AGP_.APIC */
+
                     Else
                     {
                         Return (APIC) /* \_SB_.PCI0.AGP_.APIC */
@@ -7189,10 +7557,10 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
         Device (MEM)
         {
-            Name (_HID, EisaId ("PNP0C01") /* System Board */)  // _HID: Hardware ID
+            Name (_HID, EisaId ("PNP0C01") /* System Board */)  /* _HID: Hardware ID */  // _HID: Hardware ID
             Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
             {
-                Name (BUF0, ResourceTemplate ()
+                Name (BUF0, ResourceTemplate ()  /* _BAS: Base Address */  /* _BAS: Base Address */  /* _LEN: Length */  /* _BAS: Base Address */  /* _LEN: Length */  /* _BAS: Base Address */  /* _LEN: Length */  /* _BAS: Base Address */  /* _LEN: Length */  /* _LEN: Length */  /* _BAS: Base Address */  /* _LEN: Length */  /* _BAS: Base Address */  /* _LEN: Length */  /* _BAS: Base Address */  /* _LEN: Length */
                 {
                     Memory32Fixed (ReadWrite,
                         0x000F0000,         // Address Base
@@ -7283,10 +7651,14 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     SXT1 = Zero
                 }
 
+                /* \_SB_.SMEM */
+
                 SXT2 = SMEM /* \_SB_.SMEM */
                 EXTM = (AMEM - 0x00100000)
                 If ((ROM1 != Zero))
                 {
+                    /* \_SB_.MEM_._CRS.RMA1 */
+
                     RMA2 = RMA1 /* \_SB_.MEM_._CRS.RMA1 */
                     Local0 = (ROM1 << 0x08)
                     RMA1 = Local0
@@ -7297,6 +7669,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 If ((ROM2 != Zero))
                 {
+                    /* \_SB_.MEM_._CRS.RMA2 */
+
                     RMA3 = RMA2 /* \_SB_.MEM_._CRS.RMA2 */
                     Local0 = (ROM2 << 0x08)
                     RMA2 = Local0
@@ -7307,6 +7681,8 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
 
                 If ((ROM3 != Zero))
                 {
+                    /* \_SB_.MEM_._CRS.RMA3 */
+
                     RMA4 = RMA3 /* \_SB_.MEM_._CRS.RMA3 */
                     Local0 = (ROM3 << 0x08)
                     RMA3 = Local0
@@ -7315,15 +7691,18 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     RSS4 = 0x00010000
                 }
 
+                /* \AMEM */
+
                 ACMM = AMEM /* \AMEM */
                 Return (BUF0) /* \_SB_.MEM_._CRS.BUF0 */
+                        /* \_SB_.MEM_._CRS.BUF0 */
             }
         }
 
         Device (PCI0.EXPL)
         {
-            Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  // _HID: Hardware ID
-            Name (_UID, 0x04)  // _UID: Unique ID
+            Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  /* _HID: Hardware ID */  // _HID: Hardware ID
+            Name (_UID, 0x04)  /* _UID: Unique ID */  // _UID: Unique ID
             Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
             {
                 Name (BUF0, ResourceTemplate ()
@@ -7334,6 +7713,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         )
                 })
                 Return (BUF0) /* \_SB_.PCI0.EXPL._CRS.BUF0 */
+                        /* \_SB_.PCI0.EXPL._CRS.BUF0 */
             }
         }
     }
