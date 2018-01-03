@@ -3,8 +3,8 @@
 
 
 
-Latest compiler run is down to 1 warning and 26 remarks. DSDT table is up and running again.
-It is important to set kernel boot line options explicitly to acpi_os_name='Windows 2009' to use all functions.
+Latest compiler run is down to 0 Errors, 16 Warnings, 26 Remarks and 38 Optimizations. DSDT table is up and running again.
+It is important to set kernel boot line options explicitly to acpi_os_name='Windows 2001' to use all functions.
 
 
 
