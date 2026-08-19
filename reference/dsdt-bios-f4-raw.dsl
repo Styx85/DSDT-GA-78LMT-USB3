@@ -310,8 +310,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
             RSTU = One
         }
 
-        Local1 = \PEWS
-        \PEWS = Local1
+        \PEWS = \PEWS
     }
 
     Method (TRMD, 1, NotSerialized)
@@ -717,7 +716,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x00)
             }
 
-            Method (WROW, 4, Serialized)
+            Method (WROW, 4, NotSerialized)
             {
                 Name (IFPK, Package (0x06)
                 {
@@ -751,7 +750,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 }
             }
 
-            Method (GROW, 4, Serialized)
+            Method (GROW, 4, NotSerialized)
             {
                 Name (IFPK, Package (0x06)
                 {
@@ -786,7 +785,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 BUF5 = DerefOf (IFPK [0x05])
             }
 
-            Method (CPTB, 2, Serialized)
+            Method (CPTB, 2, NotSerialized)
             {
                 Name (LOID, 0x00)
                 CreateDWordField (Arg1, 0x00, BUF0)
@@ -820,7 +819,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x00)
             }
 
-            Method (CBTP, 1, Serialized)
+            Method (CBTP, 1, NotSerialized)
             {
                 Name (LOID, 0x00)
                 CreateDWordField (Arg0, 0x00, BUF0)
@@ -876,7 +875,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 P73,    8
             }
 
-            Method (BSF, 1, Serialized)
+            Method (BSF, 1, NotSerialized)
             {
                 Name (BIT0, 0x01)
                 Local1 = 0x08
@@ -895,7 +894,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return ((0x08 - Local1))
             }
 
-            Method (GCMS, 1, Serialized)
+            Method (GCMS, 1, NotSerialized)
             {
                 Name (ADDR, 0x00)
                 Name (MASK, 0x00)
@@ -913,7 +912,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (TEMP) /* \AOD_.GCMS.TEMP */
             }
 
-            Method (SCMS, 2, Serialized)
+            Method (SCMS, 2, NotSerialized)
             {
                 Name (ADDR, 0x00)
                 Name (MASK, 0x00)
@@ -1045,7 +1044,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (Local0)
             }
 
-            Method (CCLK, 1, Serialized)
+            Method (CCLK, 1, NotSerialized)
             {
                 Name (VCOV, 0x00)
                 Name (VCOD, 0x00)
@@ -1116,7 +1115,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x04)
             }
 
-            Method (RMPC, 3, Serialized)
+            Method (RMPC, 3, NotSerialized)
             {
                 Name (STAT, 0x00)
                 Local0 = Arg0
@@ -1349,7 +1348,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x00)
             }
 
-            Method (AM05, 1, Serialized)
+            Method (AM05, 1, NotSerialized)
             {
                 Name (INFO, Buffer (0x14)
                 {
@@ -1406,7 +1405,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x00)
             }
 
-            Method (AM08, 1, Serialized)
+            Method (AM08, 1, NotSerialized)
             {
                 Name (LODT, Package (0x34)
                 {
@@ -2005,12 +2004,6 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         AM08 (WIID)
                     }
                 }
-
-                Return (Package (0x02)
-                {
-                    Zero,
-                    Zero
-                })
             }
         }
     }
@@ -2057,7 +2050,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
     Name (LINX, 0x00)
     Name (AMAC, 0x00)
     Name (OSFL, 0x01)
-    Method (STRC, 2, Serialized)
+    Method (STRC, 2, NotSerialized)
     {
         If ((SizeOf (Arg0) != SizeOf (Arg1)))
         {
@@ -2188,11 +2181,6 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
         {
             Notify (\_SB.PWRB, 0x02) // Device Wake
         }
-        Return (Package (0x02)
-        {
-            Zero,
-            Zero
-        })
     }
 
     Scope (\_SI)
@@ -2453,7 +2441,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Return (0x0F)
             }
 
-            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
                 Name (BUF0, ResourceTemplate ()
                 {
@@ -2503,7 +2491,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         0x00100000,         // Range Minimum
                         0xFEBFFFFF,         // Range Maximum
                         0x00000000,         // Translation Offset
-                        0xFEB00000,         // Length
+                        0xFFF00000,         // Length
                         ,, _Y00, AddressRangeMemory, TypeStatic)
                 })
                 CreateDWordField (BUF0, \_SB.PCI0._CRS._Y00._MIN, TCMM)  // _MIN: Minimum Base Address
@@ -3615,7 +3603,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
 
                     Name (PRIS, 0x00)
-                    Method (_PS0, 0, Serialized)  // _PS0: Power State 0
+                    Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
                     {
                         If (STEN)
                         {
@@ -3680,7 +3668,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (P_D0)
                     {
                         Name (_ADR, 0x00)  // _ADR: Address
-                        Method (_STA, 0, Serialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)  // _STA: Status
                         {
                             If (STEN)
                             {
@@ -3709,7 +3697,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         }
 
                         Name (S12P, 0x00)
-                        Method (_PS0, 0, Serialized)  // _PS0: Power State 0
+                        Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
                         {
                             If (STEN)
                             {
@@ -3746,7 +3734,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (P_D1)
                     {
                         Name (_ADR, 0x01)  // _ADR: Address
-                        Method (_STA, 0, Serialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)  // _STA: Status
                         {
                             If (STEN)
                             {
@@ -3775,7 +3763,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         }
 
                         Name (S12P, 0x00)
-                        Method (_PS0, 0, Serialized)  // _PS0: Power State 0
+                        Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
                         {
                             If (STEN)
                             {
@@ -3823,7 +3811,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
 
                     Name (SECS, 0x00)
-                    Method (_PS0, 0, Serialized)  // _PS0: Power State 0
+                    Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
                     {
                         If (STEN)
                         {
@@ -3887,7 +3875,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (S_D0)
                     {
                         Name (_ADR, 0x00)  // _ADR: Address
-                        Method (_STA, 0, Serialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)  // _STA: Status
                         {
                             If (STEN)
                             {
@@ -3916,7 +3904,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         }
 
                         Name (S12P, 0x00)
-                        Method (_PS0, 0, Serialized)  // _PS0: Power State 0
+                        Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
                         {
                             If (STEN)
                             {
@@ -3953,7 +3941,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (S_D1)
                     {
                         Name (_ADR, 0x01)  // _ADR: Address
-                        Method (_STA, 0, Serialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)  // _STA: Status
                         {
                             If (STEN)
                             {
@@ -3982,7 +3970,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         }
 
                         Name (S12P, 0x00)
-                        Method (_PS0, 0, Serialized)  // _PS0: Power State 0
+                        Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
                         {
                             If (STEN)
                             {
@@ -4025,7 +4013,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 {
                     Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  // _HID: Hardware ID
                     Name (_UID, 0x03)  // _UID: Unique ID
-                    Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                    Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
                         Name (BUF0, ResourceTemplate ()
                         {
@@ -4136,14 +4124,14 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                                 0xE0000000,         // Range Minimum
                                 0xE0000000,         // Range Maximum
                                 0x00000000,         // Translation Offset
-                                0x00000001,         // Length
+                                0x00000000,         // Length
                                 ,, _Y01, AddressRangeMemory, TypeStatic)
                             DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                                 0x00000000,         // Granularity
                                 0xFEE00400,         // Range Minimum
                                 0xFEE00FFF,         // Range Maximum
                                 0x00000000,         // Translation Offset
-                                0x00000C00,         // Length
+                                0x00000BFF,         // Length
                                 ,, , AddressRangeMemory, TypeStatic)
                         })
                         CreateDWordField (BUF0, \_SB.PCI0.LPC0.PMIO._CRS._Y01._MIN, BARX)  // _MIN: Minimum Base Address
@@ -4973,7 +4961,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         )))
                 }
 
-                Method (GTM, 1, Serialized)
+                Method (GTM, 1, NotSerialized)
                 {
                     CreateByteField (Arg0, 0x00, PIT1)
                     CreateByteField (Arg0, 0x01, PIT0)
@@ -5024,7 +5012,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Return (BUF) /* \_SB_.PCI0.IDE_.GTM_.BUF_ */
                 }
 
-                Method (STM, 3, Serialized)
+                Method (STM, 3, NotSerialized)
                 {
                     CreateDWordField (Arg0, 0x00, PIO0)
                     CreateDWordField (Arg0, 0x04, DMA0)
@@ -5078,7 +5066,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Return (BUF) /* \_SB_.PCI0.IDE_.STM_.BUF_ */
                 }
 
-                Method (GTF, 2, Serialized)
+                Method (GTF, 2, NotSerialized)
                 {
                     CreateByteField (Arg1, 0x00, MDT1)
                     CreateByteField (Arg1, 0x01, MDT0)
@@ -5131,7 +5119,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Device (PRID)
                 {
                     Name (_ADR, 0x00)  // _ADR: Address
-                    Method (_GTM, 0, Serialized)  // _GTM: Get Timing Mode
+                    Method (_GTM, 0, NotSerialized)  // _GTM: Get Timing Mode
                     {
                         Name (BUF, Buffer (0x07)
                         {
@@ -5150,7 +5138,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         Return (GTM (BUF))
                     }
 
-                    Method (_STM, 3, Serialized)  // _STM: Set Timing Mode
+                    Method (_STM, 3, NotSerialized)  // _STM: Set Timing Mode
                     {
                         Name (BUF, Buffer (0x07)
                         {
@@ -5172,7 +5160,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (P_D0)
                     {
                         Name (_ADR, 0x00)  // _ADR: Address
-                        Method (_GTF, 0, Serialized)  // _GTF: Get Task File
+                        Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
                             {
@@ -5193,7 +5181,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (P_D1)
                     {
                         Name (_ADR, 0x01)  // _ADR: Address
-                        Method (_GTF, 0, Serialized)  // _GTF: Get Task File
+                        Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
                             {
@@ -5215,7 +5203,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                 Device (SECD)
                 {
                     Name (_ADR, 0x01)  // _ADR: Address
-                    Method (_GTM, 0, Serialized)  // _GTM: Get Timing Mode
+                    Method (_GTM, 0, NotSerialized)  // _GTM: Get Timing Mode
                     {
                         Name (BUF, Buffer (0x07)
                         {
@@ -5234,7 +5222,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         Return (GTM (BUF))
                     }
 
-                    Method (_STM, 3, Serialized)  // _STM: Set Timing Mode
+                    Method (_STM, 3, NotSerialized)  // _STM: Set Timing Mode
                     {
                         Name (BUF, Buffer (0x07)
                         {
@@ -5256,7 +5244,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (S_D0)
                     {
                         Name (_ADR, 0x00)  // _ADR: Address
-                        Method (_GTF, 0, Serialized)  // _GTF: Get Task File
+                        Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
                             {
@@ -5277,7 +5265,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     Device (S_D1)
                     {
                         Name (_ADR, 0x01)  // _ADR: Address
-                        Method (_GTF, 0, Serialized)  // _GTF: Get Task File
+                        Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
                         {
                             Name (BUF, Buffer (0x05)
                             {
@@ -6353,7 +6341,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     DISD (0x03)
                 }
 
-                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
                     Name (BUF0, ResourceTemplate ()
                     {
@@ -6374,9 +6362,9 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         DMA (Compatibility, NotBusMaster, Transfer8, )
                             {2}
                     })
-                    CreateWordField (BUF0, \_SB.PCI0.FDC0._CRS._Y02._MIN, IOLO)  // _MIN: Minimum Base Address
+                    CreateByteField (BUF0, \_SB.PCI0.FDC0._CRS._Y02._MIN, IOLO)  // _MIN: Minimum Base Address
                     CreateByteField (BUF0, 0x03, IOHI)
-                    CreateWordField (BUF0, \_SB.PCI0.FDC0._CRS._Y02._MAX, IORL)  // _MAX: Maximum Base Address
+                    CreateByteField (BUF0, \_SB.PCI0.FDC0._CRS._Y02._MAX, IORL)  // _MAX: Maximum Base Address
                     CreateByteField (BUF0, 0x05, IORH)
                     ENFG ()
                     EXFG ()
@@ -6458,7 +6446,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     DISD (0x00)
                 }
 
-                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
                     Name (BUF1, ResourceTemplate ()
                     {
@@ -6471,9 +6459,9 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         IRQNoFlags (_Y04)
                             {}
                     })
-                    CreateWordField (BUF1, \_SB.PCI0.UAR1._CRS._Y03._MIN, IOLO)  // _MIN: Minimum Base Address
+                    CreateByteField (BUF1, \_SB.PCI0.UAR1._CRS._Y03._MIN, IOLO)  // _MIN: Minimum Base Address
                     CreateByteField (BUF1, 0x03, IOHI)
-                    CreateWordField (BUF1, \_SB.PCI0.UAR1._CRS._Y03._MAX, IORL)  // _MAX: Maximum Base Address
+                    CreateByteField (BUF1, \_SB.PCI0.UAR1._CRS._Y03._MAX, IORL)  // _MAX: Maximum Base Address
                     CreateByteField (BUF1, 0x05, IORH)
                     CreateWordField (BUF1, \_SB.PCI0.UAR1._CRS._Y04._INT, IRQW)  // _INT: Interrupts
                     ENFG ()
@@ -6596,7 +6584,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     DISD (0x02)
                 }
 
-                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
                     Name (BUF5, ResourceTemplate ()
                     {
@@ -6609,9 +6597,9 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         IRQNoFlags (_Y06)
                             {}
                     })
-                    CreateWordField (BUF5, \_SB.PCI0.LPT1._CRS._Y05._MIN, IOLO)  // _MIN: Minimum Base Address
+                    CreateByteField (BUF5, \_SB.PCI0.LPT1._CRS._Y05._MIN, IOLO)  // _MIN: Minimum Base Address
                     CreateByteField (BUF5, 0x03, IOHI)
-                    CreateWordField (BUF5, \_SB.PCI0.LPT1._CRS._Y05._MAX, IORL)  // _MAX: Maximum Base Address
+                    CreateByteField (BUF5, \_SB.PCI0.LPT1._CRS._Y05._MAX, IORL)  // _MAX: Maximum Base Address
                     CreateByteField (BUF5, 0x05, IORH)
                     CreateByteField (BUF5, \_SB.PCI0.LPT1._CRS._Y05._LEN, IOLE)  // _LEN: Length
                     CreateWordField (BUF5, \_SB.PCI0.LPT1._CRS._Y06._INT, IRQW)  // _INT: Interrupts
@@ -6738,7 +6726,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     DISD (0x02)
                 }
 
-                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
                     Name (BUF6, ResourceTemplate ()
                     {
@@ -6759,14 +6747,14 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                         DMA (Compatibility, NotBusMaster, Transfer8, _Y0A)
                             {}
                     })
-                    CreateWordField (BUF6, \_SB.PCI0.ECP1._CRS._Y07._MIN, IOLO)  // _MIN: Minimum Base Address
+                    CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y07._MIN, IOLO)  // _MIN: Minimum Base Address
                     CreateByteField (BUF6, 0x03, IOHI)
-                    CreateWordField (BUF6, \_SB.PCI0.ECP1._CRS._Y07._MAX, IORL)  // _MAX: Maximum Base Address
+                    CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y07._MAX, IORL)  // _MAX: Maximum Base Address
                     CreateByteField (BUF6, 0x05, IORH)
                     CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y07._LEN, IOLE)  // _LEN: Length
-                    CreateWordField (BUF6, \_SB.PCI0.ECP1._CRS._Y08._MIN, IOEL)  // _MIN: Minimum Base Address
+                    CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y08._MIN, IOEL)  // _MIN: Minimum Base Address
                     CreateByteField (BUF6, 0x0B, IOEH)
-                    CreateWordField (BUF6, \_SB.PCI0.ECP1._CRS._Y08._MAX, IOML)  // _MAX: Maximum Base Address
+                    CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y08._MAX, IOML)  // _MAX: Maximum Base Address
                     CreateByteField (BUF6, 0x0D, IOMH)
                     CreateWordField (BUF6, \_SB.PCI0.ECP1._CRS._Y09._INT, IRQW)  // _INT: Interrupts
                     CreateByteField (BUF6, \_SB.PCI0.ECP1._CRS._Y0A._DMA, DMAC)  // _DMA: Direct Memory Access
@@ -6910,7 +6898,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
                     }
                 }
 
-                Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
                     Name (BUF1, ResourceTemplate ()
                     {
@@ -7190,7 +7178,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
         Device (MEM)
         {
             Name (_HID, EisaId ("PNP0C01") /* System Board */)  // _HID: Hardware ID
-            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
                 Name (BUF0, ResourceTemplate ()
                 {
@@ -7324,7 +7312,7 @@ DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001000)
         {
             Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  // _HID: Hardware ID
             Name (_UID, 0x04)  // _UID: Unique ID
-            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
                 Name (BUF0, ResourceTemplate ()
                 {
