@@ -12,13 +12,16 @@ The fixes were revisited in 2026 using a fresh DSDT extracted from the same boar
 - `dsdt.dsl`  
   Current corrected DSDT source.
 
+- `dsdt.aml`  
+  Compiled AML generated from the current `dsdt.dsl` using ACPICA/iasl 20251212.
+
 - `reference/dsdt-bios-f4-raw.dsl`  
   Freshly extracted and decompiled BIOS F4 DSDT without manual fixes.
 
 - `legacy/dsdt-2017.dsl`  
   Historical corrected DSDT from the original 2017 work.
 
-The compiled `dsdt.aml` is intentionally not stored in the repository and should be generated locally.
+The included `dsdt.aml` is the reference build corresponding to the current `dsdt.dsl`.
 
 ## Hardware
 
@@ -53,6 +56,7 @@ Compile the corrected source with:
 ```bash
 iasl dsdt.dsl
 ```
+This produces `dsdt.aml`. The repository includes the AML generated from the current corrected source so that the published source and reference build remain aligned.
 
 Current reference build:
 
