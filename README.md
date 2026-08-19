@@ -56,7 +56,10 @@ Compile the corrected source with:
 ```bash
 iasl dsdt.dsl
 ```
-This produces `dsdt.aml`. The repository includes the AML generated from the current corrected source so that the published source and reference build remain aligned.
+
+This produces `dsdt.aml`.
+
+The repository includes the AML generated from the current corrected source so that the published source and reference build remain aligned.
 
 Current reference build:
 
@@ -64,12 +67,37 @@ Current reference build:
 Intel ACPI Component Architecture
 ASL+ Optimizing Compiler/Disassembler version 20251212
 
-ASL Input:     dsdt.dsl - 260277 bytes
-AML Output:    dsdt.aml - 25010 bytes
-
 Compilation successful.
 0 Errors, 10 Warnings, 73 Remarks, 981 Optimizations, 2 Constants Folded
 ```
+
+The exact input byte count may change when the source header or comments are adjusted; the compiler result above is the relevant validation state.
+
+## ACPI table revision for Linux override
+
+The original BIOS DSDT identifies itself as:
+
+```text
+OEM ID           "GBT   "
+OEM Table ID     "GBTUACPI"
+OEM Revision     0x00001000
+```
+
+The corrected DSDT keeps the same OEM ID and OEM Table ID but increments the OEM revision to:
+
+```text
+0x00001001
+```
+
+The current `DefinitionBlock` therefore uses:
+
+```asl
+DefinitionBlock ("", "DSDT", 1, "GBT   ", "GBTUACPI", 0x00001001)
+```
+
+This is intentional.
+
+Linux ACPI initrd table override treats the replacement table as an upgrade of the firmware table. Keeping the same table identity while using a higher OEM revision allows the corrected DSDT to replace the original BIOS F4 DSDT during early boot.
 
 ## Applied fixes
 
@@ -239,6 +267,51 @@ The nearby ACPI warning concerning the SystemIO region around `0xB00` belongs to
 
 No speculative `_WDG` or `SOR1` modification is included in this repository.
 
+## Linux initrd ACPI override
+
+The corrected `dsdt.aml` can be loaded through an early initrd ACPI table override.
+
+On Arch Linux with `mkinitcpio`, copy the compiled AML to:
+
+```bash
+sudo mkdir -p /etc/initcpio/acpi_override
+sudo cp dsdt.aml /etc/initcpio/acpi_override/dsdt.aml
+```
+
+Add the `acpi_override` hook to the existing `HOOKS` array in:
+
+```text
+/etc/mkinitcpio.conf
+```
+
+Do not replace the existing hooks; only add `acpi_override`.
+
+Then rebuild the initramfs:
+
+```bash
+sudo mkinitcpio -P
+```
+
+The table can be checked inside the generated initramfs with:
+
+```bash
+lsinitcpio /boot/initramfs-linux.img | grep -i -E 'acpi|dsdt'
+```
+
+The expected path is:
+
+```text
+kernel/firmware/acpi/dsdt.aml
+```
+
+After rebooting, verify that Linux loaded the replacement table:
+
+```bash
+sudo dmesg | grep -i -E 'ACPI.*override|ACPI.*upgrade|DSDT'
+```
+
+Always keep a working boot fallback when experimenting with custom ACPI tables.
+
 ## Historical note
 
 The original 2017 version compiled with:
@@ -282,6 +355,4 @@ Do not use the compiled DSDT from this repository blindly on a different motherb
 
 Extract your own firmware DSDT, compare it against the reference table, understand the changes, and keep a working boot fallback before loading a custom ACPI table.
 
-```
-
-
+````
